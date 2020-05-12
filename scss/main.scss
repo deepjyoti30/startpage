@@ -1,6 +1,10 @@
 $background: #263238;
 $foreground: #fff;
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+$media: #4DD0E1;
+$work: #F06292;
+$social: #FFF176;
+$others: #A1887F;
 
 .roboto {
     font-family: 'Roboto', sans-serif;
@@ -65,10 +69,6 @@ body {
                 transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             }
 
-            h4 {
-                color: #4DD0E1;
-            }
-
             a {
                 color: #9E9E9E;
                 font-size: 16px;
@@ -80,6 +80,31 @@ body {
                     text-decoration: none;
                     transition: .1s ease-in;
                 }
+            }
+        }
+
+        .media {
+            h4, a:hover {
+                color: $media;
+            }
+        }
+
+        .work {
+            h4, a:hover {
+                color: $work;
+            }
+        }
+
+        .social {
+            h4, a:hover {
+                color: $social;
+            }
+            
+        }
+
+        .others {
+            h4, a:hover {
+                color: $others;
             }
         }
     }

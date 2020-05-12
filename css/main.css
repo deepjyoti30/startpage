@@ -47,8 +47,6 @@ body {
       .main #other-content .sqr:hover {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-      .main #other-content .sqr h4 {
-        color: #4DD0E1; }
       .main #other-content .sqr a {
         color: #9E9E9E;
         font-size: 16px;
@@ -58,3 +56,11 @@ body {
           color: #fff;
           text-decoration: none;
           transition: .1s ease-in; }
+    .main #other-content .media h4, .main #other-content .media a:hover {
+      color: #4DD0E1; }
+    .main #other-content .work h4, .main #other-content .work a:hover {
+      color: #F06292; }
+    .main #other-content .social h4, .main #other-content .social a:hover {
+      color: #FFF176; }
+    .main #other-content .others h4, .main #other-content .others a:hover {
+      color: #A1887F; }
