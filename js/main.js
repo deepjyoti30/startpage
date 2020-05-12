@@ -3,7 +3,7 @@ window.onload = function() {
 }
 
 searchBarId = "search-bar-input"
-messageId = "message h2"
+messageId = "message h1"
 userName = "Deepjyoti"
 
 function initBody() {
