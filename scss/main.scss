@@ -24,6 +24,10 @@ body {
     width: 100%;
     text-align: center;
 
+    #message {
+        padding-bottom: 25px;
+    }
+
     #search-bar {
         width: 50%;
         margin: 0 auto;
@@ -61,7 +65,6 @@ body {
             background: lighten($background, 5);
             padding: 20px 15px;
             border-radius: 6px;
-            text-align: center;
             min-height: 150px;
 
             &:hover {
