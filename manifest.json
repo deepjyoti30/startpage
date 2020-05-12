@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "minimal-startpage",
+  "short_name": "minimal-startpage",
+  "version": "1.0",
+  "description": "Overrides the browsers newtab page with a custom startpage.",
+  "author": "deepjyoti30",
+
+  "icons": {
+    "48": "img/icon48.png",
+    "96": "img/icon96.png",
+    "128": "img/icon128.png",
+    "192": "img/icon192.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  }
+}

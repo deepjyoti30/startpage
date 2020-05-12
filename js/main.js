@@ -3,7 +3,7 @@ window.onload = function() {
 }
 
 searchBarId = "search-bar-input"
-messageId = "message h1"
+messageId = "message-text"
 userName = "Deepjyoti"
 
 function initBody() {
@@ -14,9 +14,9 @@ function initBody() {
      * other things.
      */
     // Clear the search bar on load, just in case
-    $("#" + searchBarId).val("")
-    $("#" + searchBarId).on("keypress", (event) => {
-        if (event.which != 13) return
+    document.getElementById(searchBarId).value = ""
+    document.getElementById(searchBarId).addEventListener("keypress", (event) => {
+        if (event.key != 'Enter') return
 
         // Open google with the search results.
         googleSearchUrl = "https://www.google.com/search?q="
@@ -28,7 +28,8 @@ function initBody() {
     builtMsg = buildMsg()
     builtMsg == "" ? 
         builtMsg = `Hello ${userName}` : builtMsg = `Hey ${userName}, ${builtMsg}!`
-    $("#" + messageId).text(builtMsg)
+    console.log(builtMsg)
+    document.getElementById(messageId).textContent = builtMsg
 }
 
 function buildMsg() {
@@ -41,7 +42,7 @@ function buildMsg() {
      * 9 - 11:59 : Have a good day ahead
      * 12 - 16:59 : Good Afternoon
      * 17 - 19:59 : Good Evening
-     * 20 - 23:59 : Get away from the computer
+     * 20 - 23:59 : It's time to wrap up for the day
      */
     date = new Date()
     currentHour = date.getHours()
@@ -59,7 +60,7 @@ function buildMsg() {
     if (inRange(currentTime, 17, 19.59))
         return "Good Evening"
     if (inRange(currentTime, 20, 24))
-        return "Get away from the computer"
+        return "It's time to wrap up for the day"
     else
         return ""
 }

@@ -17,7 +17,7 @@ body {
     padding-bottom: 35px; }
   .main #search-bar {
     width: 50%;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     height: 45px; }
     .main #search-bar input {
       height: inherit;
