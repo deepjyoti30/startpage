@@ -7,10 +7,7 @@
   "author": "deepjyoti30",
 
   "icons": {
-    "48": "img/icon48.png",
-    "96": "img/icon96.png",
-    "128": "img/icon128.png",
-    "192": "img/icon192.png"
+    "64": "img/icon64.png"
   },
   "chrome_url_overrides": {
     "newtab": "index.html"

@@ -28,7 +28,6 @@ function initBody() {
     builtMsg = buildMsg()
     builtMsg == "" ? 
         builtMsg = `Hello ${userName}` : builtMsg = `Hey ${userName}, ${builtMsg}!`
-    console.log(builtMsg)
     document.getElementById(messageId).textContent = builtMsg
 }
 
