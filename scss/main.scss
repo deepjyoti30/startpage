@@ -52,6 +52,10 @@ body {
             }
             
         }
+
+        @media only screen and (max-width: 791px) {
+            width: 65%;
+        }
     }
 
     #other-content {
