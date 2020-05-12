@@ -18,6 +18,7 @@ body {
 
 .main {
     width: 100%;
+    text-align: center;
 
     #search-bar {
         width: 50%;
@@ -42,6 +43,44 @@ body {
                 transition: all 0.3s cubic-bezier(.25,.8,.25,1);
             }
             
+        }
+    }
+
+    #other-content {
+        margin: 20px auto;
+        padding: 10px 0;
+
+        .sqr {
+            display: inline-block;
+            margin: 20px 5px 0 5px;
+            width: 200px;
+            background: lighten($background, 5);
+            padding: 20px 15px;
+            border-radius: 6px;
+            text-align: center;
+            min-height: 150px;
+
+            &:hover {
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            }
+
+            h4 {
+                color: #4DD0E1;
+            }
+
+            a {
+                color: #9E9E9E;
+                font-size: 16px;
+                transition: .1s ease-in;
+                display: block;
+
+                &:hover {
+                    color: $foreground;
+                    text-decoration: none;
+                    transition: .1s ease-in;
+                }
+            }
         }
     }
 }

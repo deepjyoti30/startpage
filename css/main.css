@@ -11,7 +11,8 @@ body {
   color: #fff; }
 
 .main {
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
   .main #search-bar {
     width: 50%;
     margin: 0 auto;
@@ -31,3 +32,29 @@ body {
       .main #search-bar input:focus {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .main #other-content {
+    margin: 20px auto;
+    padding: 10px 0; }
+    .main #other-content .sqr {
+      display: inline-block;
+      margin: 20px 5px 0 5px;
+      width: 200px;
+      background: #304047;
+      padding: 20px 15px;
+      border-radius: 6px;
+      text-align: center;
+      min-height: 150px; }
+      .main #other-content .sqr:hover {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+      .main #other-content .sqr h4 {
+        color: #4DD0E1; }
+      .main #other-content .sqr a {
+        color: #9E9E9E;
+        font-size: 16px;
+        transition: .1s ease-in;
+        display: block; }
+        .main #other-content .sqr a:hover {
+          color: #fff;
+          text-decoration: none;
+          transition: .1s ease-in; }
