@@ -3,7 +3,7 @@
   font-family: 'Roboto', sans-serif; }
 
 body {
-  height: 100vh;
+  height: 97.5vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,11 +43,14 @@ body {
     .main #other-content .sqr {
       display: inline-block;
       margin: 20px 5px 0 5px;
-      width: 200px;
+      width: 170px;
       background: #2e2e2e;
-      padding: 20px 15px;
+      padding: 15px 15px;
       border-radius: 6px;
       min-height: 150px; }
+      .main #other-content .sqr h4 {
+        font-size: 18px;
+        margin: 15px; }
       .main #other-content .sqr:hover {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
@@ -55,7 +58,9 @@ body {
         color: #9E9E9E;
         font-size: 16px;
         transition: .1s ease-in;
-        display: block; }
+        display: block;
+        text-decoration: none;
+        line-height: 22px; }
         .main #other-content .sqr a:hover {
           color: #fff;
           text-decoration: none;
