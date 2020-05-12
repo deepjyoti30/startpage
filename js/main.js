@@ -22,6 +22,10 @@ function initBody() {
      */
     // Clear the search bar on load, just in case
     document.getElementById(searchBarId).value = ""
+
+    // Read the json file
+    json = readJSON("config.json")
+
     document.getElementById(searchBarId).addEventListener("keypress", (event) => {
         if (event.key != 'Enter') return
 
@@ -30,15 +34,6 @@ function initBody() {
         query = document.getElementById(searchBarId).value.replace(/\ /g, "+")
         document.location = googleSearchUrl + query
     })
-    
-    // Build a message for the user
-    builtMsg = buildMsg()
-    builtMsg == "" ? 
-        builtMsg = `Hello ${userName}` : builtMsg = `Hey ${userName}, ${builtMsg}!`
-    document.getElementById(messageId).textContent = builtMsg
-
-    // Read the json file
-    json = readJSON("config.json")
 }
 
 function buildMsg() {
@@ -92,6 +87,14 @@ function parseAndCreate(jsonData) {
      * Parse the passed jsonData and create div's accordingly.
      */
     this.userName = jsonData["user"]
+
+    // Build a message for the user
+    builtMsg = buildMsg()
+    builtMsg == "" ? 
+        builtMsg = `Hello ${this.userName}` : builtMsg = `Hey ${this.userName}, ${builtMsg}!`
+    document.getElementById(messageId).textContent = builtMsg
+
+
     sqrs = jsonData["squares"]
 
     sqrs.forEach((element, index) => {
