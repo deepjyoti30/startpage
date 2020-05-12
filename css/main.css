@@ -7,7 +7,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #263238;
+  background: #212121;
   color: #fff; }
 
 .main {
@@ -20,7 +20,7 @@ body {
     .main #search-bar input {
       height: inherit;
       width: 100%;
-      background: #304047;
+      background: #2e2e2e;
       box-shadow: none;
       border: none;
       text-align: center;
@@ -39,7 +39,7 @@ body {
       display: inline-block;
       margin: 20px 5px 0 5px;
       width: 200px;
-      background: #304047;
+      background: #2e2e2e;
       padding: 20px 15px;
       border-radius: 6px;
       text-align: center;
@@ -63,4 +63,4 @@ body {
     .main #other-content .social h4, .main #other-content .social a:hover {
       color: #FFF176; }
     .main #other-content .others h4, .main #other-content .others a:hover {
-      color: #A1887F; }
+      color: #81C784; }
