@@ -38,11 +38,13 @@ body {
       .main #search-bar {
         width: 65%; } }
   .main #other-content {
-    margin: 20px auto;
+    margin: 40px auto;
     padding: 10px 0; }
     .main #other-content .sqr {
+      vertical-align: top;
       display: inline-block;
-      margin: 20px 5px 0 5px;
+      margin-left: 5px;
+      margin-right: 5px;
       width: 170px;
       background: #2e2e2e;
       padding: 15px 15px;

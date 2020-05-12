@@ -1,0 +1,25 @@
+{
+  "squares": [
+    { "name": "reddit", "links": [
+        { "name": "SkincareAddiction", "url": "https://www.reddit.com/r/SkincareAddiction/" },
+        { "name": "MakeupAddiction", "url": "https://www.reddit.com/r/MakeupAddiction/" },
+        { "name": "dwarffortress", "url": "https://www.reddit.com/r/dwarffortress/" },
+        { "name": "unixporn", "url": "https://www.reddit.com/r/unixporn/" }
+      ]
+    },
+    { "name": "media", "links": [
+        { "name": "Netflix", "url": "https://www.netflix.com/" },
+        { "name": "goodreads", "url": "https://www.goodreads.com/" },
+        { "name": "imgur", "url": "http://imgur.com/" }
+      ]
+    },
+    { "name": "programming", "links": [
+        { "name": "GitHub", "url": "https://github.com/" },
+        { "name": "stackoverflow", "url": "https://stackoverflow.com/" },
+        { "name": "MDN Web Docs", "url": "https://developer.mozilla.org/bm/" },
+        { "name": "cppreference", "url": "http://en.cppreference.com/w/" }
+      ]
+    }
+  ],
+  "user": "Deepjyoti"
+}

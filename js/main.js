@@ -4,7 +4,14 @@ window.onload = function() {
 
 searchBarId = "search-bar-input"
 messageId = "message-text"
+otherContentId = "other-content"
 userName = "Deepjyoti"
+bgClassContainer = [
+    "media",
+    "work",
+    "social",
+    "others"
+]
 
 function initBody() {
     /**
@@ -29,6 +36,9 @@ function initBody() {
     builtMsg == "" ? 
         builtMsg = `Hello ${userName}` : builtMsg = `Hey ${userName}, ${builtMsg}!`
     document.getElementById(messageId).textContent = builtMsg
+
+    // Read the json file
+    json = readJSON("config.json")
 }
 
 function buildMsg() {
@@ -66,4 +76,64 @@ function buildMsg() {
 
 function inRange(number, min, max) {
     return (number >= min && number <= max)
+}
+
+function readJSON(fileName) {
+    // Load the data of the passed file.
+    fetch(fileName)
+        .then(response => {return response.json()})
+        .then(jsonData => {
+            parseAndCreate(jsonData)
+        })
+}
+
+function parseAndCreate(jsonData) {
+    /**
+     * Parse the passed jsonData and create div's accordingly.
+     */
+    this.userName = jsonData["user"]
+    sqrs = jsonData["squares"]
+
+    sqrs.forEach((element, index) => {
+        sqr = createSqr(element, index)
+        document.getElementById(otherContentId).appendChild(sqr)
+    })
+}
+
+function createSqr(sqrData, index) {
+    // Create a new square division with the passed element
+    name = sqrData["name"]
+    links = sqrData["links"]
+
+    div = document.createElement("div")
+    cls = document.createAttribute("class")
+    div.setAttributeNode(cls)
+    div.classList.add("sqr")
+
+    if (index > bgClassContainer.length - 1)
+        customClass = "media"
+    else
+        customClass = bgClassContainer[index]
+    div.classList.add(customClass)
+
+    h4 = document.createElement("h4")
+    h4.textContent = name
+
+    div.appendChild(h4)
+
+    links.forEach(element => {
+        aName = element["name"]
+        aHref = element["url"]
+        
+        a = document.createElement("a")
+        attrHref = document.createAttribute("href")
+        attrHref.value = aHref
+        a.setAttributeNode(attrHref)
+
+        a.textContent = aName
+
+        div.appendChild(a)
+    })
+
+    return div
 }
