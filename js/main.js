@@ -4,6 +4,8 @@ window.onload = function() {
 
 searchBarId = "search-bar-input"
 messageDivId = "message"
+dateDivId = "date"
+dateId = "date-text"
 messageId = "message-text"
 otherContentId = "other-content"
 userName = "Deepjyoti"
@@ -13,6 +15,20 @@ bgClassContainer = [
     "social",
     "others"
 ]
+dateMap = {
+    0: "Jan",
+    1: "Feb",
+    2: "Mar",
+    3: "Apr",
+    4: "May",
+    5: "Jun",
+    6: "Jul",
+    7: "Aug",
+    8: "Sep",
+    9: "Oct",
+    10: "Nov",
+    11: "Dec"
+}
 
 function initBody() {
     /**
@@ -70,6 +86,25 @@ function buildMsg() {
         return ""
 }
 
+function updateTime() {
+    /**
+     * Get the current time and date and return it.
+     */
+    currentDate = new Date()
+    date = currentDate.getDate()
+    month = dateMap[currentDate.getMonth()]
+    time = currentDate.getHours() + ":" + currentDate.getMinutes()
+    finalDate = date + " " + month + ", " + time
+    document.getElementById(dateId).textContent = finalDate
+}
+
+function updateTimeHook() {
+    updateTime()
+    interval = setInterval(() => {
+        updateTime()
+    }, 30 * 1000)
+}
+
 function inRange(number, min, max) {
     return (number >= min && number <= max)
 }
@@ -96,9 +131,12 @@ function parseAndCreate(jsonData) {
     document.getElementById(messageId).textContent = builtMsg
 
     // Check if welcome message is supposed to be disabled
-    disableMsg = jsonData["disableMessage"]
-    if (disableMsg)
+    if (jsonData["disableMessage"])
         document.getElementById(messageDivId).style.display = "none"
+    if (jsonData["disableDate"])
+        document.getElementById(dateDivId).style.display = "none"
+    else
+        updateTimeHook()
 
 
     sqrs = jsonData["squares"]

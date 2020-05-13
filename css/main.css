@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-.roboto, body {
+.roboto {
   font-family: 'Roboto', sans-serif; }
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../fonts/woff/JetBrainsMono-Regular.woff") format("woff"), url("../fonts/woff2/JetBrainsMono-Regular.woff2") format("woff2"); }
+
+.jetbrains-mono, body {
+  font-family: 'JetBrains Mono'; }
 
 body {
   height: 97.5vh;
@@ -13,12 +20,14 @@ body {
 .main {
   width: 100%;
   text-align: center; }
-  .main #message {
-    padding-bottom: 35px; }
+  .main #date-text {
+    padding-top: 15px;
+    color: #d9d9d9; }
   .main #search-bar {
     width: 50%;
     margin: 0 auto 50px auto;
-    height: 45px; }
+    height: 45px;
+    padding-top: 35px; }
     .main #search-bar input {
       height: inherit;
       width: 100%;
