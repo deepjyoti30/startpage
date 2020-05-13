@@ -3,6 +3,7 @@ window.onload = function() {
 }
 
 searchBarId = "search-bar-input"
+messageDivId = "message"
 messageId = "message-text"
 otherContentId = "other-content"
 userName = "Deepjyoti"
@@ -93,6 +94,11 @@ function parseAndCreate(jsonData) {
     builtMsg == "" ? 
         builtMsg = `Hello ${this.userName}` : builtMsg = `Hey ${this.userName}, ${builtMsg}!`
     document.getElementById(messageId).textContent = builtMsg
+
+    // Check if welcome message is supposed to be disabled
+    disableMsg = jsonData["disableMessage"]
+    if (disableMsg)
+        document.getElementById(messageDivId).style.display = "none"
 
 
     sqrs = jsonData["squares"]

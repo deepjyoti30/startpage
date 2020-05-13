@@ -29,5 +29,6 @@
       ]
     }
   ],
-  "user": "Deepjyoti"
+  "user": "Deepjyoti",
+  "disableMessage": true
 }
