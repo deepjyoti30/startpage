@@ -2,6 +2,8 @@
 
 Just another minimal startpage for browsers.
 
+<img src=".github/startpage.gif">
+
 ## How to Use
 
 - Clone the repo
