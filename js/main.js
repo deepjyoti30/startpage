@@ -13,7 +13,12 @@ bgClassContainer = [
     "media",
     "work",
     "social",
-    "others"
+    "others",
+    "funky",
+    "purple",
+    "upvoty",
+    "indigo",
+    "foxxy"
 ]
 dateMap = {
     0: "Jan",
