@@ -93,7 +93,8 @@ function updateTime() {
     currentDate = new Date()
     date = currentDate.getDate()
     month = dateMap[currentDate.getMonth()]
-    time = currentDate.getHours() + ":" + currentDate.getMinutes()
+    minutes = currentDate.getMinutes()
+    time = currentDate.getHours() + ":" + (minutes < 10 ? "0" + minutes : minutes)
     finalDate = date + " " + month + ", " + time
     document.getElementById(dateId).textContent = finalDate
 }
