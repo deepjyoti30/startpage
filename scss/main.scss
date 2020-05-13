@@ -45,6 +45,10 @@ body {
         color: darken($foreground, 15);
     }
 
+    #message-text {
+        font-size: 23px;
+    }
+
     #search-bar {
         width: 50%;
         margin: 0 auto 50px auto;

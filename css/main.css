@@ -23,6 +23,8 @@ body {
   .main #date-text {
     padding-top: 15px;
     color: #d9d9d9; }
+  .main #message-text {
+    font-size: 23px; }
   .main #search-bar {
     width: 50%;
     margin: 0 auto 50px auto;
