@@ -2,6 +2,7 @@ window.onload = function() {
     this.initBody()
 }
 
+searchBarDivId = "search-bar"
 searchBarId = "search-bar-input"
 messageDivId = "message"
 dateDivId = "date"
@@ -42,11 +43,14 @@ function initBody() {
      * Do everything like adding an event listener to
      * other things.
      */
-    // Clear the search bar on load, just in case
-    document.getElementById(searchBarId).value = ""
-
     // Read the json file
     json = readJSON("config.json")
+}
+
+function initSearchBar() {
+    // Clear the search bar on load, just in case
+    document.getElementById(searchBarId).value = ""
+    document.getElementById(searchBarId).focus()
 
     document.getElementById(searchBarId).addEventListener("keypress", (event) => {
         if (event.key != 'Enter') return
@@ -143,6 +147,10 @@ function parseAndCreate(jsonData) {
         document.getElementById(dateDivId).style.display = "none"
     else
         updateTimeHook()
+    if (jsonData["disableSearchBar"])
+        document.getElementById(searchBarDivId).style.display = "none"
+    else
+        initSearchBar()
 
 
     sqrs = jsonData["squares"]

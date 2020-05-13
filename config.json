@@ -31,5 +31,6 @@
   ],
   "user": "Deepjyoti",
   "disableMessage": false,
-  "disableDate": false
+  "disableDate": false,
+  "disableSearchBar": false
 }
