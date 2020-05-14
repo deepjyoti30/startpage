@@ -19,10 +19,12 @@ Just another minimal startpage for browsers.
 - On chrome, open extensions from the tool menu or open it from [chrome://extensions](chrome://extensions).
 - Click on load unpacked, navigate to the directory where you cloned the repo and select it.
 
-### Firefox
+### Firefox (temporary)
 
-- Get the latest ```xpi``` file present in the dist directory [here](https://github.com/deepjyoti30/startpage/raw/master/dist/minimal_startpage-1.0-fx.xpi).
-- Go to add ons from Firefox and select the xpi file you downloaded, it should be installed.
+- Open ```about:debugging``` from your Firefox browser.
+- Click on This Firefox and select ```Load Temporary Add On...```
+- Open the cloned repo directory and select any file there (preferrably ```manifest.json```)
+- It should be installed.
 
 ## Upcoming
 
