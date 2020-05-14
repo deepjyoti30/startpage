@@ -17,10 +17,9 @@ Just another minimal startpage for browsers.
 ### Chrome
 
 - On chrome, open extensions from the tool menu or open it from [chrome://extensions](chrome://extensions).
-
 - Click on load unpacked, navigate to the directory where you cloned the repo and select it.
 
-### Firefox
+### Firefox (temporary)
 
 - Open ```about:debugging``` from your Firefox browser.
 - Click on This Firefox and select ```Load Temporary Add On...```
@@ -29,7 +28,9 @@ Just another minimal startpage for browsers.
 
 ## Upcoming
 
-I'm thinking of pushing the add on to their respective add on stores, I'll add that ASAP.
+~~I'm thinking of pushing the add on to their respective add on stores, I'll add that ASAP.~~
+
+I thought I would work on adding a settings page that would handle the updating the settings but I'm just way to bored and honestly I've come to realize I hate GUI's (I mean I've always loved CLI based apps). Anyway, the extension can still be used and I'm sure the crowd I aimed this extension at knows how to edit a ```json``` file, for the time being I'll just let you guys install it and use it and edit the settings from the ```config```.
 
 ## Settings
 
