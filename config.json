@@ -29,6 +29,10 @@
       ]
     }
   ],
+  "searchEngine":{
+    "name": "Google",
+    "searchUrl": "https://www.google.com/search?q="
+  },
   "user": "Deepjyoti",
   "disableMessage": false,
   "disableDate": false,
