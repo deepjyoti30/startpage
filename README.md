@@ -21,7 +21,7 @@ Just another minimal startpage for browsers.
 
 ### Firefox
 
-- Get the latest ```xpi``` file from the dist directory.
+- Get the latest ```xpi``` file present in the dist directory [here](https://github.com/deepjyoti30/startpage/raw/master/dist/minimal_startpage-1.0-fx.xpi).
 - Go to add ons from Firefox and select the xpi file you downloaded, it should be installed.
 
 ## Upcoming
