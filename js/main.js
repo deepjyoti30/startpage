@@ -10,6 +10,7 @@ dateId = "date-text"
 messageId = "message-text"
 otherContentId = "other-content"
 userName = "Deepjyoti"
+disable24Hour = false;
 bgClassContainer = [
     "media",
     "work",
@@ -21,21 +22,6 @@ bgClassContainer = [
     "indigo",
     "foxxy"
 ]
-dateMap = {
-    0: "Jan",
-    1: "Feb",
-    2: "Mar",
-    3: "Apr",
-    4: "May",
-    5: "Jun",
-    6: "Jul",
-    7: "Aug",
-    8: "Sep",
-    9: "Oct",
-    10: "Nov",
-    11: "Dec"
-}
-
 searchEngines = {
     "Google": "https://www.google.com/search?q=",
     "DuckDuckGo": "https://duckduckgo.com/?q=",
@@ -118,11 +104,7 @@ function updateTime() {
      * Get the current time and date and return it.
      */
     currentDate = new Date()
-    date = currentDate.getDate()
-    month = dateMap[currentDate.getMonth()]
-    minutes = currentDate.getMinutes()
-    time = currentDate.getHours() + ":" + (minutes < 10 ? "0" + minutes : minutes)
-    finalDate = date + " " + month + ", " + time
+    finalDate = currentDate.toLocaleString(undefined, {day:'numeric', month:'short', hour:'numeric', minute:'numeric',hour12:disable24Hour})
     document.getElementById(dateId).textContent = finalDate
 }
 
@@ -157,7 +139,8 @@ function parseAndCreate(jsonData) {
     builtMsg == "" ? 
         builtMsg = `Hello ${this.userName}` : builtMsg = `Hey ${this.userName}, ${builtMsg}!`
     document.getElementById(messageId).textContent = builtMsg
-
+    // Check if 24 hour is disabled
+    disable24Hour = jsonData["disable24Hour"]
     // Check if welcome message is supposed to be disabled
     if (jsonData["disableMessage"])
         document.getElementById(messageDivId).style.display = "none"
@@ -177,6 +160,7 @@ function parseAndCreate(jsonData) {
         sqr = createSqr(element, index)
         document.getElementById(otherContentId).appendChild(sqr)
     })
+    
 }
 
 function createSqr(sqrData, index) {
