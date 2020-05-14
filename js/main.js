@@ -56,9 +56,9 @@ function initSearchBar() {
         if (event.key != 'Enter') return
 
         // Open google with the search results.
-        googleSearchUrl = "https://www.google.com/search?q="
+        duckduckgoSearchUrl = "https://www.duckduckgo.com/?q="
         query = document.getElementById(searchBarId).value.replace(/\ /g, "+")
-        document.location = googleSearchUrl + query
+        document.location = duckduckgoSearchUrl + query
     })
 }
 
