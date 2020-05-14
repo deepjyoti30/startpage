@@ -47,16 +47,20 @@ function initBody() {
     json = readJSON("config.json")
 }
 
-function initSearchBar(config) {
+function initSearchBar(jsonData) {
     // Clear the search bar on load, just in case
     document.getElementById(searchBarId).value = ""
     document.getElementById(searchBarId).focus()
-    document.getElementById(searchBarId).placeholder = `Search something on ${config["name"]}`
+    searchEngine = jsonData["searchEngine"]
+    if(!Object.keys(jsonData["searchEngines"]).includes(searchEngine)){
+        searchEngine = "Google"
+    }
+    searchUrl = jsonData["searchEngines"][searchEngine]
+    document.getElementById(searchBarId).placeholder = `Search something on ${searchEngine}`
     document.getElementById(searchBarId).addEventListener("keypress", (event) => {
         if (event.key != 'Enter') return
 
         // Open google with the search results.
-        searchUrl = config["searchUrl"]
         query = document.getElementById(searchBarId).value.replace(/\ /g, "+")
         document.location = searchUrl + query
     })
@@ -150,7 +154,7 @@ function parseAndCreate(jsonData) {
     if (jsonData["disableSearchBar"])
         document.getElementById(searchBarDivId).style.display = "none"
     else
-        initSearchBar(jsonData["searchEngine"])
+        initSearchBar(jsonData)
 
 
     sqrs = jsonData["squares"]
