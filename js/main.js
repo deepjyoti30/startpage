@@ -36,6 +36,13 @@ dateMap = {
     11: "Dec"
 }
 
+searchEngines = {
+    "Google": "https://www.google.com/search?q=",
+    "DuckDuckGo": "https://duckduckgo.com/?q=",
+    "Bing": "https://www.bing.com/search?q=",
+    "Yahoo": "https://search.yahoo.com/search?p="
+}
+
 function initBody() {
     /**
      * Function called when the body is loaded.
@@ -52,10 +59,10 @@ function initSearchBar(jsonData) {
     document.getElementById(searchBarId).value = ""
     document.getElementById(searchBarId).focus()
     searchEngine = jsonData["searchEngine"]
-    if(!Object.keys(jsonData["searchEngines"]).includes(searchEngine)){
+    if(!Object.keys(this.searchEngines).includes(searchEngine)){
         searchEngine = "Google"
     }
-    searchUrl = jsonData["searchEngines"][searchEngine]
+    searchUrl = this.searchEngines[searchEngine]
     document.getElementById(searchBarId).placeholder = `Search something on ${searchEngine}`
     document.getElementById(searchBarId).addEventListener("keypress", (event) => {
         if (event.key != 'Enter') return
