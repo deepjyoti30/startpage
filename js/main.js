@@ -68,7 +68,14 @@ function initSearchBar(jsonData) {
         if (event.key != 'Enter') return
 
         // Open google with the search results.
-        query = document.getElementById(searchBarId).value.replace(/\ /g, "+")
+        query = document.getElementById(searchBarId).value
+        if (query == "--setting") {
+            showSettings()
+            document.getElementById(searchBarId).value = ""
+            return
+        }
+
+        query = query.replace(/\ /g, "+")
         document.location = searchUrl + query
     })
 }

@@ -96,3 +96,23 @@ body {
       color: #7986CB; }
     .main #other-content .foxxy h4, .main #other-content .foxxy a:hover {
       color: #A1887F; }
+
+.settings-modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #fff; }
+  .settings-modal .modal-content {
+    border: 1px solid red; }
+  .settings-modal .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold; }
+    .settings-modal .close:hover, .settings-modal .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer; }
