@@ -123,7 +123,7 @@ function updateTimeHook() {
 }
 
 function getFahrenheit(inCelcius) {
-    return (inCelcius * 9 / 5) + 32
+    return ((inCelcius * 9 / 5) + 32).toFixed(2)
 }
 
 function indexUppercase(unformatted) {
