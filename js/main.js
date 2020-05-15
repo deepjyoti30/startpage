@@ -123,7 +123,7 @@ function updateTimeHook() {
 }
 
 function getFahrenheit(inCelcius) {
-    return ((inCelcius * 9 / 5) + 32).toFixed(2)
+    return Math.floor((inCelcius * 9 / 5) + 32)
 }
 
 function indexUppercase(unformatted) {
@@ -148,7 +148,7 @@ function updateWeather(weatherConfig) {
     fetch(fetchUrl)
         .then(response => {return response.json()})
         .then(jsonData => {
-            temp = jsonData["main"]["temp"]
+            temp = Math.floor(jsonData["main"]["temp"])
             weatherType = jsonData["weather"][0]["main"]
             console.log(temp, weatherType)
 
