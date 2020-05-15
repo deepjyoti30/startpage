@@ -34,5 +34,10 @@
   "disableMessage": false,
   "disableDate": false,
   "disableSearchBar": false,
-  "disable24Hour": false
+  "disable24Hour": false,
+  "disableWeather": true,
+  "weatherConf": {
+    "location": "Pune India",
+    "unit": "fah"
+  }
 }

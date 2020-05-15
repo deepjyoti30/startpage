@@ -8,45 +8,14 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="settings" class="settings-modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Settings</h2>
-            <div class="settings-container">
-                <div class="row">
-                    <div class="col">
-                        Username <input type="text" id="username">
-                    </div>
-                    <div class="col">
-                        Search Engine
-                        <select id="search-engine">
-                            <option value="DuckDuckGo">DuckDuckGo</option>
-                            <option value="Google">Google</option>
-                            <option value="Bing">Bing</option>
-                            <option value="Yahoo">Yahoo</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <b>Hide</b> Welcome Message <input type="checkbox" id="disabel-message">
-                    </div>
-                    <div class="col">
-                        <b>Hide</b> date and time <input type="checkbox" id="disabel-date">
-                    </div>
-                    <div class="col">
-                        <b>Hide</b> Search Bar <input type="checkbox" id="disabel-bar">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="main" class="main">
         <div id="message">
             <h1 id="message-text">Good Morning!</h1>
         </div>
         <div id="date">
             <h2 id="date-text"></h2>
+            <h2 id="line">|</h2>
+            <h2 id="weather-text">Fetching Weather...</h2>
         </div>
         <div id="search-bar">
             <input id="search-bar-input"></input>

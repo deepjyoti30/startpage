@@ -40,8 +40,15 @@ body {
     width: 100%;
     text-align: center;
 
-    #date-text {
-        padding-top: 15px;
+    #date {
+        h2 {
+            padding-top: 15px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    #date-text, #weather-text {
         color: darken($foreground, 15);
     }
 

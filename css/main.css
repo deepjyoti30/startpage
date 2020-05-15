@@ -20,8 +20,11 @@ body {
 .main {
   width: 100%;
   text-align: center; }
-  .main #date-text {
+  .main #date h2 {
     padding-top: 15px;
+    display: inline-block;
+    vertical-align: top; }
+  .main #date-text, .main #weather-text {
     color: #d9d9d9; }
   .main #message-text {
     font-size: 23px; }
