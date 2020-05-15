@@ -36,7 +36,7 @@ validWeatherUnit = [
     "fah", "cel"
 ]
 
-function initBody() {
+async function initBody() {
     /**
      * Function called when the body is loaded.
      * 
@@ -44,7 +44,12 @@ function initBody() {
      * other things.
      */
     // Read the json file
-    json = readJSON("config.json")
+    storedSettings = await chrome.storage.sync.get(result => {return result})
+    console.log(storedSettings)
+    if (storedSettings == undefined || storedSettings.length == 0)
+        readJSON("config.json")
+    else
+        parseAndCreate(storedSettings)
 }
 
 function initSearchBar(jsonData) {
@@ -169,7 +174,12 @@ function readJSON(fileName) {
         .then(response => {return response.json()})
         .then(jsonData => {
             parseAndCreate(jsonData)
+            saveSettings(jsonData)
         })
+}
+
+function saveSettings(settings) {
+    chrome.storage.sync.set(settings)
 }
 
 function parseAndCreate(jsonData) {

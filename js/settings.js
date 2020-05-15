@@ -8,11 +8,38 @@
  */
 
 modalId = "settings"
-closeBtn = "close"
+closeId = "close"
+jsonContainer = "jsoneditor"
 
-function showSettings() {
+async function showSettings() {
     modalEl = document.getElementById(modalId)
-    closeBtn = document.getElementsByClassName(closeBtn)[0]
+    closeBtn = document.getElementsByClassName(closeId)[0]
     modalEl.style.display = "block"
-    closeBtn.onclick = () => {modalEl.style.display = "none"}
+    updatedJson = await loadJson()
+    closeBtn.onclick = () => {
+        modalEl.style.display = "none"
+        // Get the updated JSON
+        //updatedJson = editor.get()
+        console.log(updatedJson)
+        chrome.storage.sync.set(updatedJson)
+        document.getElementById(jsonContainer).innerHTML = ""
+        location.reload()
+    }
+}
+
+async function loadJson() {
+    container = document.getElementById(jsonContainer)
+    const options = {
+        mode: 'tree',
+        modes: ['code', 'tree', 'view']
+    }
+    const editor = new JSONEditor(container, options)
+
+    const response = await fetch("config.json")
+    const initialJson = await response.json()
+    
+    // Populate the editor
+    editor.set(initialJson)
+
+    return editor.get()
 }
