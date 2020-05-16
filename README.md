@@ -31,7 +31,15 @@
 
 Available on the Mozilla Add On Store.
 
-Get it [here](https://addons.mozilla.org/en-US/firefox/addon/minimal-startpage/). 
+Get it [here](https://addons.mozilla.org/en-US/firefox/addon/minimal-startpage/).
+
+## Signing the extension for Personal Use
+
+Yes, you can sign the extension with your own unique signature and use it personally.
+
+[Here's](https://github.com/deepjyoti30/startpage/wiki/How-to-sign-the-extension-for-Personal-Use-on-Firefox) how to do it.
+
+>NOTE: Above is only necessary for Firefox users since Chrome let's you use without signing.
 
 ## Settings
 
