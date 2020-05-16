@@ -29,9 +29,9 @@
 
 ### Firefox
 
-Submitted to addons.mozilla.org, I will update the README once the addon is approved.
+Available on the Mozilla Add On Store.
 
-Check [here](https://addons.mozilla.org/en-US/firefox/addon/minimal-startpage/). Should be available in a while.
+Get it [here](https://addons.mozilla.org/en-US/firefox/addon/minimal-startpage/). 
 
 ## Settings
 
