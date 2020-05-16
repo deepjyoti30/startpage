@@ -39,7 +39,7 @@ Yes, you can sign the extension with your own unique signature and use it person
 
 [Here's](https://github.com/deepjyoti30/startpage/wiki/How-to-sign-the-extension-for-Personal-Use-on-Firefox) how to do it.
 
->NOTE: Above is only necessary for Firefox users since Chrome let's you use without signing.
+>NOTE: Above is only necessary for Firefox users since Chrome lets you use without signing.
 
 ## Settings
 
