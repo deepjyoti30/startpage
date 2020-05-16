@@ -28,13 +28,15 @@ Just another minimal startpage for browsers.
 
 ## Upcoming
 
-~~I'm thinking of pushing the add on to their respective add on stores, I'll add that ASAP.~~
+Will be availabe on Firefox and Chrome add on stores in a while.
 
 I thought I would work on adding a settings page that would handle the updating the settings but I'm just way to bored and honestly I've come to realize I hate GUI's (I mean I've always loved CLI based apps). Anyway, the extension can still be used and I'm sure the crowd I aimed this extension at knows how to edit a ```json``` file, for the time being I'll just let you guys install it and use it and edit the settings from the ```config```.
 
 ## Settings
 
-For the time being you need to edit the ```config.json``` file present in the root directory of the repo and then install the extension by following the above steps.
+You can edit the settings by writing ```--setting``` in the search bar and clicking enter.
+
+A JSON editor will open up where you can make the changes.
 
 | Name | Supported Values | Default | Description |
 | ---- | ----- | ------- | ------ |
