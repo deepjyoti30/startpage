@@ -11,35 +11,50 @@ modalId = "settings"
 closeId = "close"
 jsonContainer = "jsoneditor"
 
-async function showSettings() {
+// Detect browser
+BROWSER = detectBrowser()
+
+function showSettings() {
     modalEl = document.getElementById(modalId)
     closeBtn = document.getElementsByClassName(closeId)[0]
     modalEl.style.display = "block"
-    updatedJson = await loadJson()
-    closeBtn.onclick = () => {
-        modalEl.style.display = "none"
-        // Get the updated JSON
-        //updatedJson = editor.get()
-        console.log(updatedJson)
-        chrome.storage.sync.set(updatedJson)
-        document.getElementById(jsonContainer).innerHTML = ""
-        location.reload()
-    }
-}
 
-async function loadJson() {
+    // Define the jsonEditor
     container = document.getElementById(jsonContainer)
     const options = {
         mode: 'tree',
         modes: ['code', 'tree', 'view']
     }
     const editor = new JSONEditor(container, options)
+    loadJson(editor)
 
-    const response = await fetch("config.json")
-    const initialJson = await response.json()
-    
-    // Populate the editor
-    editor.set(initialJson)
+    closeBtn.onclick = () => {
+        modalEl.style.display = "none"
+        // Get the updated JSON
+        updatedJson = editor.get()
+        BROWSER.storage.sync.set(updatedJson)
+        document.getElementById(jsonContainer).innerHTML = ""
+        location.reload()
+    }
+}
 
-    return editor.get()
+async function loadJson(editor) {
+    BROWSER.storage.sync.get(async result => {
+        if (Object.keys(result).length == 0) {
+            const response = await fetch("config.json")
+            result = await response.json()
+        }
+        // Populate the editor
+        editor.set(result)
+    })
+}
+
+function detectBrowser() {
+    // Firefox
+    if (typeof InstallTrigger !== 'undefined')
+        BROWSER = browser
+    else if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime))
+        BROWSER = chrome
+
+    return BROWSER
 }
