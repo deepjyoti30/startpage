@@ -10,6 +10,7 @@ dateId = "date-text"
 weatherId = "weather-text"
 lineId = "line"
 messageId = "message-text"
+timeZ = undefined
 otherContentId = "other-content"
 userName = ""
 disable24Hour = false;
@@ -113,7 +114,15 @@ function updateTime() {
      * Get the current time and date and return it.
      */
     currentDate = new Date()
-    finalDate = currentDate.toLocaleString(undefined, {day:'numeric', month:'short', hour:'numeric', minute:'numeric',hour12:disable24Hour})
+    options = {
+                day: 'numeric',
+                month: 'short',
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: disable24Hour,
+                timeZone: timeZ
+            }
+    finalDate = currentDate.toLocaleString(undefined, options)
     document.getElementById(dateId).textContent = finalDate
 }
 
@@ -122,16 +131,6 @@ function updateTimeHook() {
     interval = setInterval(() => {
         updateTime()
     }, 30 * 1000)
-}
-
-function getFahrenheit(inCelcius) {
-    return Math.floor((inCelcius * 9 / 5) + 32)
-}
-
-function indexUppercase(unformatted) {
-    return unformatted.split(" ").map(w => {
-        return w[0].toUpperCase() + w.substring(1)
-    }).join(" ")
 }
 
 function updateWeather(weatherConfig) {
@@ -158,10 +157,6 @@ function updateWeather(weatherConfig) {
             weatherText = temp + ", " + indexUppercase(weatherType)
             document.getElementById(weatherId).innerHTML = weatherText
         })
-}
-
-function inRange(number, min, max) {
-    return (number >= min && number <= max)
 }
 
 function readJSON(fileName) {
@@ -191,6 +186,8 @@ function parseAndCreate(jsonData) {
     document.getElementById(messageId).textContent = builtMsg
     // Check if 24 hour is disabled
     disable24Hour = jsonData["disable24Hour"]
+    timeZ = jsonData["timeZone"]
+    timeZ = isValidTimeZone(timeZ) ? timeZ : undefined
     // Check if welcome message is supposed to be disabled
     if (jsonData["disableMessage"])
         document.getElementById(messageDivId).style.display = "none"
@@ -258,4 +255,34 @@ function createSqr(sqrData, index) {
     })
 
     return div
+}
+
+// Utility functions
+
+function isValidTimeZone(tz) {
+    if (!Intl || !Intl.DateTimeFormat().resolvedOptions().timeZone) {
+        throw 'Time zones are not available in this environment';
+    }
+
+    try {
+        Intl.DateTimeFormat(undefined, {timeZone: tz});
+        return true;
+    }
+    catch (ex) {
+        return false;
+    }
+}
+
+function getFahrenheit(inCelcius) {
+    return Math.floor((inCelcius * 9 / 5) + 32)
+}
+
+function indexUppercase(unformatted) {
+    return unformatted.split(" ").map(w => {
+        return w[0].toUpperCase() + w.substring(1)
+    }).join(" ")
+}
+
+function inRange(number, min, max) {
+    return (number >= min && number <= max)
 }
