@@ -1,6 +1,8 @@
 {
   "squares": [
-    { "name": "media", "links": [
+    { "name": "media",
+      "color": "red",
+      "links": [
         { "name": "Spotify", "url": "https://open.spotify.com/" },
         { "name": "YoutubeMusic", "url": "https://music.youtube.com/" },
         { "name": "Netflix", "url": "https://netflix.com" },

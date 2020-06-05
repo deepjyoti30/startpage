@@ -221,8 +221,9 @@ function parseAndCreate(jsonData) {
 
 function createSqr(sqrData, index) {
     // Create a new square division with the passed element
-    name = sqrData["name"]
-    links = sqrData["links"]
+    name = sqrData["name"];
+    links = sqrData["links"];
+    color = sqrData["color"];
 
     div = document.createElement("div")
     cls = document.createAttribute("class")
@@ -285,4 +286,23 @@ function indexUppercase(unformatted) {
 
 function inRange(number, min, max) {
     return (number >= min && number <= max)
+}
+
+function isColorValid(color) {
+    /**
+     * Check if the passed color is valid.
+     * 
+     * Currently supports only css color names
+     * or hex colors having 3 or 6 characters.
+     */
+    // Sometimes, the user might not have set a value for the color,
+    // in which case it will be undefined.
+    if (color == undefined) return false;
+
+    // Check CSS match
+    let defaultStyles = new Option().style;
+    if (defaultStyles.color == color) return true;
+
+    // In case the above failed, check if it's a hex
+    return /^#([0-9A-F]{3}){1,2}$/i.test(color);
 }
