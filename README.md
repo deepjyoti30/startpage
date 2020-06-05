@@ -33,13 +33,16 @@ Available on the Mozilla Add On Store.
 
 Get it [here](https://addons.mozilla.org/en-US/firefox/addon/minimal-startpage/).
 
-## Signing the extension for Personal Use
+### Installing & Signing the extension manually (for personal use) for access to css/js files.
 
-Yes, you can sign the extension with your own unique signature and use it personally.
+If you would like access to css/js to change them you must build and sign the extension yourself.
 
-[Here's](https://github.com/deepjyoti30/startpage/wiki/How-to-sign-the-extension-for-Personal-Use-on-Firefox) how to do it.
+- Get the latest release (zip) or clone this repo and extract it.
+- Change the config to your liking
+- Follow [these](https://github.com/deepjyoti30/startpage/wiki/How-to-sign-the-extension-for-Personal-Use-on-Firefox) instructions on building and signing for personal use.
 
->NOTE: Above is only necessary for Firefox users since Chrome let's you use without signing.
+>NOTE: Building/Signing is only necessary for Firefox users since Chrome lets you use without signing.
+>NOTE: You must re-build and sign every time you need to update your config. Steps for updating are outlined in the instructions.
 
 ## Settings
 
