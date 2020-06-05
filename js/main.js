@@ -45,6 +45,8 @@ function initBody() {
      * other things.
      */
     // Read the json file
+    readJSON("config.json");
+    return;
     BROWSER.storage.sync.get(result => {
         Object.keys(result).length == 0 ? readJSON("config.json") : parseAndCreate(result)
     })
@@ -170,6 +172,7 @@ function readJSON(fileName) {
 }
 
 function saveSettings(settings) {
+    return;
     BROWSER.storage.sync.set(settings)
 }
 
@@ -225,19 +228,28 @@ function createSqr(sqrData, index) {
     links = sqrData["links"];
     color = sqrData["color"];
 
+    // Sometimes, the user might not have set a value for the color,
+    // in which case it will be undefined.
+    colorValid = (color == undefined) ? false : isColorValid(color);
+    console.log(isColorValid(color));
+
     div = document.createElement("div")
     cls = document.createAttribute("class")
     div.setAttributeNode(cls)
     div.classList.add("sqr")
 
-    if (index > bgClassContainer.length - 1)
-        customClass = "media"
+    if (colorValid)
+        customClass = createClass(color);
+    else if (index > bgClassContainer.length - 1)
+        customClass = 'media';
     else
-        customClass = bgClassContainer[index]
-    div.classList.add(customClass)
+        customClass = bgClassContainer[index];
+
+    div.classList.add(customClass);
 
     h4 = document.createElement("h4")
     h4.textContent = name
+
 
     div.appendChild(h4)
 
@@ -295,14 +307,34 @@ function isColorValid(color) {
      * Currently supports only css color names
      * or hex colors having 3 or 6 characters.
      */
-    // Sometimes, the user might not have set a value for the color,
-    // in which case it will be undefined.
-    if (color == undefined) return false;
-
     // Check CSS match
     let defaultStyles = new Option().style;
+    defaultStyles.color = color
     if (defaultStyles.color == color) return true;
 
     // In case the above failed, check if it's a hex
     return /^#([0-9A-F]{3}){1,2}$/i.test(color);
+}
+
+function createClass(color) {
+    /**
+     * Create a new class in a style and add it to
+     * the head.
+     * 
+     * I did check other alternatives since adding something like
+     * this in the innerHTML is not a preferred way to go,
+     * especially since I'm building this as an extension,
+     * however, there's no other way. 
+     * 
+     * Since I also want to add hover effects, there seriously
+     * is no other way to do that without adding a style or using
+     * a library (cannot/don't want to do that because this is an extension).
+     */
+    var style = document.createElement('style');
+    const newClassName = `bg-${Math.random().toString(36).substring(7)}`;
+    style.type = 'text/css';
+    style.innerHTML = `.${newClassName} h4 {color: ${color} !important;} .${newClassName} a:hover {color: ${color} !important;}`;
+    document.getElementsByTagName('head')[0].appendChild(style);
+
+    return newClassName;
 }

@@ -9,13 +9,16 @@
         { "name": "Youtube", "url": "https://youtube.com" }
       ]
     },
-    { "name": "work", "links": [
+    { "name": "work",
+      "color": "#26A69A",
+      "links": [
         { "name": "Github", "url": "https://github.com" },
         { "name": "Heroku", "url": "http://heroku.com/" },
         { "name": "localhost", "url": "http://localhost:8000/" }
       ]
     },
-    { "name": "social", "links": [
+    { "name": "social",
+      "links": [
         { "name": "Reddit", "url": "https://reddit.com" },
         { "name": "Unixporn Love", "url": "https://deepjyoti30.github.io/unixporn-love/" },
         { "name": "r/unixporn", "url": "https://www.reddit.com/r/unixporn/" },
@@ -23,7 +26,8 @@
       ]
     },
     {
-      "name": "Others", "links": [
+      "name": "Others",
+      "links": [
         {"name": "Material Colors", "url": "http://materialuicolors.co/"},
         {"name": "Gmail", "url": "http://gmail.com/"},
         {"name": "neo4j Local", "url": "http://localhost:7474/"},
