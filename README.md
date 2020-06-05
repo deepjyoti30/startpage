@@ -62,6 +62,72 @@ A JSON editor will open up where you can make the changes.
 | weatherConf | Object (Check default for child keys) | {"location": "Pune India","unit": "fah"}| Configuration for the weather, location and unit etc. In "unit", "fah" is short for Fahrenheit and "cel" for Celcius, however the whole word can also be passed. |
 | squares | Object of arrays | Check [config.json](https://github.com/deepjyoti30/startpage/blob/master/config.json) for default values | Values and Names of shortcuts for the cards. |
 
+## Customizing the squares
+
+The squares are pretty customizable as well.
+
+Each square should be present inside the **squares** Object in the ```config.json``` file or should be set when ```--setting``` is clicked.
+
+Each square can contain the following values.
+
+<details>
+    <summary>Name</summary>
+
+    ## Name
+    The name variable contains the **name** of the square block, the one that appears on the top of the square/card.
+
+    For Eg: If you want to set the squares name to **Media**, it should be
+
+    ```json
+    "name": "Media"
+    ```
+
+    **Datatype**: String
+</details>
+<details>
+    <summary>Color</summary>
+
+    ## Color
+    The primary color that the heading of the square has and also the one that the links will have when the cursor is over them.
+
+    For Eg: If you want to set the color to **Black** or **#000** or **#000000*, the string should be one of the following
+
+    ```json
+    "color": "Black",
+    ```
+    OR
+
+    ```json
+    "color": "#000"
+    ```
+    OR
+
+    ```json
+    "color": "#000000"
+    ```
+
+    >**NOTE**: Currently supports CSS color names and HEX values.
+
+    **Datatype**: String
+</details>
+<details>
+    <summary>Links</summary>
+
+    ## Links
+    This is an array that will contain objects which will later be parsed to URL. Each object should contain two values.
+
+    - name: Name of the URL
+    - url: The URL.
+
+    For eg: If you want something like [Netflix](https://netflix.com), the object should be
+
+    ```json
+    {"name": "Netflix", "url": "https://netflix.com"}
+    ```
+
+    **Datatype**: Array
+</details>
+
 ## Support the project
 
 If you like using this app, consider supporting the project/me
