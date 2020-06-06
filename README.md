@@ -92,7 +92,7 @@ Each square can contain the following values.
 
   **Datatype**: String
 
-  For Eg: If you want to set the color to **Black** or **#000** or **#000000*, the string should be one of the following
+  For Eg: If you want to set the color to **Black** or **#000** or **#000000**, the string should be one of the following
 
   ```json
   "color": "Black",
