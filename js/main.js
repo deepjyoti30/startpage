@@ -46,8 +46,6 @@ function initBody() {
      * other things.
      */
     // Read the json file
-    readJSON("config.json");
-    return;
     BROWSER.storage.sync.get(result => {
         Object.keys(result).length == 0 ? readJSON("config.json") : parseAndCreate(result)
     })
@@ -173,7 +171,6 @@ function readJSON(fileName) {
 }
 
 function saveSettings(settings) {
-    return;
     BROWSER.storage.sync.set(settings)
 }
 
