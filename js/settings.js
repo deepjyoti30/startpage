@@ -22,7 +22,7 @@ function showSettings() {
     // Define the jsonEditor
     container = document.getElementById(jsonContainer)
     const options = {
-        mode: 'tree',
+        mode: 'code',
         modes: ['code', 'tree', 'view']
     }
     const editor = new JSONEditor(container, options)
