@@ -1,7 +1,9 @@
 window.onload = function() {
-    this.initBody()
+    this.initBody();
 }
 
+
+debug = false; // Enable while testing on local
 searchBarDivId = "search-bar"
 searchBarId = "search-bar-input"
 messageDivId = "message"
@@ -37,6 +39,8 @@ searchEngines = {
 validWeatherUnit = [
     "fah", "cel"
 ]
+validQuickLinks = {}
+
 
 function initBody() {
     /**
@@ -45,6 +49,12 @@ function initBody() {
      * Do everything like adding an event listener to
      * other things.
      */
+    // If running on local, just read the conf
+    if (debug) {
+        readJSON("config.json");
+        return;
+    }
+
     // Read the json file
     BROWSER.storage.sync.get(result => {
         Object.keys(result).length == 0 ? readJSON("config.json") : parseAndCreate(result)
@@ -64,14 +74,17 @@ function initSearchBar(jsonData) {
     document.getElementById(searchBarId).addEventListener("keypress", (event) => {
         if (event.key != 'Enter') return
 
-        // Open google with the search results.
+        // Do whatever the user wants to do
         query = document.getElementById(searchBarId).value
+
+        // Open settings
         if (query == "--setting") {
             showSettings()
             document.getElementById(searchBarId).value = ""
             return
         }
 
+        // If not others, then it's probably a search
         query = query.replace(/\ /g, "+")
         document.location = searchUrl + query
     })
@@ -171,6 +184,8 @@ function readJSON(fileName) {
 }
 
 function saveSettings(settings) {
+    if (debug) return;
+
     BROWSER.storage.sync.set(settings)
 }
 
@@ -212,6 +227,10 @@ function parseAndCreate(jsonData) {
         initSearchBar(jsonData)
 
     sqrs = jsonData["squares"]
+
+    // Extract the quicklinks from the sqrs
+    extractQuickLinks(sqrs);
+    console.log(validQuickLinks);
 
     sqrs.forEach((element, index) => {
         sqr = createSqr(element, index)
@@ -335,4 +354,21 @@ function createClass(color) {
     document.getElementsByTagName('head')[0].appendChild(style);
 
     return newClassName;
+}
+
+
+function extractQuickLinks(passedSqrs) {
+    /**
+     * Extract the quicklinks passed in the config
+     * 
+     * Cache the quicklinks passed by the user in the config JSON
+     * so that they can be used as a shortcut called from the
+     * search bar.
+     */
+    passedSqrs.forEach(linksContainer => {
+        linksContainer.links.forEach(linkObject => this.validQuickLinks[linkObject.name] = linkObject.url);
+    });
+
+    // Start the autocomplete
+    autocomplete(document.getElementById("search-bar-input"), this.validQuickLinks);
 }

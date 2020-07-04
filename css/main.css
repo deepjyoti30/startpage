@@ -32,9 +32,11 @@ body {
     width: 50%;
     margin: 0 auto 50px auto;
     height: 45px;
-    padding-top: 35px; }
-    .main #search-bar input {
-      height: inherit;
+    padding-top: 35px;
+    position: relative;
+    display: inline-block; }
+    .main #search-bar #search-bar-input {
+      height: 50px;
       width: 100%;
       background: #2e2e2e;
       box-shadow: none;
@@ -44,10 +46,36 @@ body {
       outline: none;
       padding: 7px 14px;
       font-size: 18px;
-      color: #fff; }
-      .main #search-bar input:focus {
+      color: #fff;
+      box-sizing: border-box; }
+      .main #search-bar #search-bar-input:focus {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+    .main #search-bar .autocomplete-items-container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      border-radius: 6px; }
+      .main #search-bar .autocomplete-items-container .autocomplete-item {
+        width: 100%;
+        background: #2e2e2e;
+        box-shadow: none;
+        border: none;
+        text-align: center;
+        outline: none;
+        padding: 7px 14px;
+        font-size: 18px;
+        color: #fff;
+        box-sizing: border-box;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        .main #search-bar .autocomplete-items-container .autocomplete-item:hover {
+          background-color: red; }
+      .main #search-bar .autocomplete-items-container .autocomplete-active {
+        background-color: DodgerBlue !important;
+        color: #ffffff; }
     @media only screen and (max-width: 791px) {
       .main #search-bar {
         width: 65%; } }
@@ -57,7 +85,8 @@ body {
     .main #other-content .sqr {
       vertical-align: top;
       display: inline-block;
-      margin: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
       width: 170px;
       background: #2e2e2e;
       padding: 15px 15px;
