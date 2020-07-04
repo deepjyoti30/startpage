@@ -29,20 +29,15 @@
 
 ### Firefox
 
-Available on the Mozilla Add On Store.
-
-Get it [here](https://addons.mozilla.org/en-US/firefox/addon/minimal-startpage/).
-
-### Installing & Signing the extension manually (for personal use) for access to css/js files.
-
-If you would like access to css/js to change them you must build and sign the extension yourself.
+You must build & sign the extension yourself.
 
 - Get the latest release (zip) or clone this repo and extract it.
-- Change the config to your liking
+- If you would like to  change the source code, please do so right after cloning.
 - Follow [these](https://github.com/deepjyoti30/startpage/wiki/How-to-sign-the-extension-for-Personal-Use-on-Firefox) instructions on building and signing for personal use.
+- Change the JSON as outlined below in the settings section.
 
 >NOTE: Building/Signing is only necessary for Firefox users since Chrome lets you use without signing.
->NOTE: You must re-build and sign every time you need to update your config. Steps for updating are outlined in the instructions.
+>NOTE: You must re-build and sign every time you need to change the source code. Steps for updating are outlined in the instructions.
 
 ## Settings
 
