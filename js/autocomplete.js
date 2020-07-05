@@ -65,7 +65,7 @@ function autocomplete(inp, passedValues) {
         else if (e.keyCode == 13) {
             /*If the ENTER key is pressed, prevent the form from being submitted,*/
             if (currentFocus > -1) {
-                x.preventDefault();
+                e.preventDefault();
                 /*and simulate a click on the "active" item:*/
                 if (x) window.location = x[0].getAttribute('url');
             }

@@ -3,7 +3,7 @@ window.onload = function() {
 }
 
 
-debug = false; // Enable while testing on local
+debug = true; // Enable while testing on local
 searchBarDivId = "search-bar"
 searchBarId = "search-bar-input"
 messageDivId = "message"
@@ -230,7 +230,6 @@ function parseAndCreate(jsonData) {
 
     // Extract the quicklinks from the sqrs
     extractQuickLinks(sqrs);
-    console.log(validQuickLinks);
 
     sqrs.forEach((element, index) => {
         sqr = createSqr(element, index)
@@ -248,7 +247,6 @@ function createSqr(sqrData, index) {
     // Sometimes, the user might not have set a value for the color,
     // in which case it will be undefined.
     colorValid = (color == undefined) ? false : isColorValid(color);
-    console.log(isColorValid(color));
 
     div = document.createElement("div")
     cls = document.createAttribute("class")
