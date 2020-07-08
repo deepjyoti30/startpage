@@ -57,7 +57,10 @@ body {
       left: 0;
       right: 0;
       z-index: 99;
-      border-radius: 6px; }
+      border-radius: 6px;
+      background: #2e2e2e;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
       .main #search-bar .autocomplete-items-container .autocomplete-item {
         width: 100%;
         background: #2e2e2e;
@@ -68,14 +71,11 @@ body {
         padding: 7px 14px;
         font-size: 18px;
         color: #fff;
-        box-sizing: border-box;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+        box-sizing: border-box; }
         .main #search-bar .autocomplete-items-container .autocomplete-item:hover {
-          background-color: red; }
+          background: #3b3b3b; }
       .main #search-bar .autocomplete-items-container .autocomplete-active {
-        background-color: DodgerBlue !important;
-        color: #ffffff; }
+        background: #353535; }
     @media only screen and (max-width: 791px) {
       .main #search-bar {
         width: 65%; } }

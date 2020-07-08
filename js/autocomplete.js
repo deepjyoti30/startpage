@@ -3,23 +3,27 @@ function autocomplete(inp, passedValues) {
 
     /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function(e) {
-        var parentContainer, item, val = this.value;
+        var item, val = this.value;
+        var parentContainer = document.getElementsByClassName('autocomplete-items-container')[0];
         
         /*close any already open lists of autocompleted values*/
         closeAllLists();
-        if (!val) { return false;}
+        if (!val) {
+            parentContainer.style.paddingBottom = "0";
+            return false;
+        }
         currentFocus = -1;
 
-        /*create a DIV element that will contain the items (values):*/
-        parentContainer = document.getElementsByClassName("autocomplete-items-container")[0];
+        // Update some values of the parent container
         parentContainer.setAttribute("id", this.id + "autocomplete-list");
+        parentContainer.style.paddingBottom = "1rem";
 
 
         /*for each item in the array...*/
         Object.keys(passedValues).forEach((el, i, arr) => {
 
           /*check if the item starts with the same letters as the text field value:*/
-          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          if (arr[i].toLowerCase().includes(val.toLowerCase())) {
             /*create a DIV element for each matching element:*/
             item = document.createElement("DIV");
             item.setAttribute("class", "autocomplete-item");
@@ -95,9 +99,9 @@ function autocomplete(inp, passedValues) {
         except the one passed as an argument:*/
         var x = document.getElementsByClassName("autocomplete-item");
         for (var i = 0; i < x.length; i++) {
-            if (elmnt != x[i] && elmnt != inp) {
-            x[i].parentNode.removeChild(x[i]);
-        }
+            if (elmnt != x[i]) {
+                x[i].parentNode.removeChild(x[i]);
+            }
         }
     }
 
