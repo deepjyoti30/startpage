@@ -50,6 +50,7 @@ A JSON editor will open up where you can make the changes.
 | searchEngine | \<DuckDuckGo \| Google \| Bing \|Yahoo\> | DuckDuckGo | Search Engine to use for searching from the bar |
 | user | string | Deepjyoti (That's my name) | Name of the user to use on the welcome message |
 | disableMessage | \<false \| true\> | false | Hide the Welcome message |
+| message | string | Not in config by default | Static custom message |
 | disableDate | \<false \| true\> | false | Hide the date |
 | disableSearchBar | \<false \| true\> | false | Hide the search bar |
 | disable24Hour | \<false \| true\> | true | Disable 24 hour clock and show time in 12 hour format |

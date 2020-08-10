@@ -125,6 +125,20 @@ function buildMsg() {
         return ""
 }
 
+function handleMessage(userName) {
+    /**
+     * Handle the creation of the message
+     * 
+     * Build the message based on the time of the day.
+     * If the message is null then add just the username
+     * Else, add the username before the message.
+     */
+    var builtMsg = buildMsg()
+    builtMsg == "" ? 
+        builtMsg = `Hello ${userName}` : builtMsg = `Hey ${userName}, ${builtMsg}!`
+    return builtMsg;
+}
+
 function updateTime() {
     /**
      * Get the current time and date and return it.
@@ -197,10 +211,14 @@ function parseAndCreate(jsonData) {
      */
     this.userName = jsonData["user"]
 
-    // Build a message for the user
-    builtMsg = buildMsg()
-    builtMsg == "" ? 
-        builtMsg = `Hello ${this.userName}` : builtMsg = `Hey ${this.userName}, ${builtMsg}!`
+    // If the user has not passed any custom message
+    if (Object.keys(jsonData).includes("message") && 
+            typeof(jsonData["message"]) == "string" &&
+            jsonData["message"] != "")
+        builtMsg = jsonData["message"]
+    else
+        builtMsg = this.handleMessage(this.userName);
+    
     document.getElementById(messageId).textContent = builtMsg
     // Check if 24 hour is disabled
     disable24Hour = jsonData["disable24Hour"]
