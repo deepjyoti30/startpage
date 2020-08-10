@@ -3,7 +3,7 @@ window.onload = function() {
 }
 
 
-debug = true; // Enable while testing on local
+debug = false; // Enable while testing on local
 searchBarDivId = "search-bar"
 searchBarId = "search-bar-input"
 messageDivId = "message"
@@ -81,6 +81,8 @@ function initSearchBar(jsonData) {
         if (query == "--setting") {
             showSettings()
             document.getElementById(searchBarId).value = ""
+            // Remove the autocomplete boxes
+            document.getElementById("search-bar-input-autocomplete-list").style.display = "none";
             return
         }
 

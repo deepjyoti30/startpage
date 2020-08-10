@@ -15,7 +15,7 @@ function autocomplete(inp, passedValues) {
         currentFocus = -1;
 
         // Update some values of the parent container
-        parentContainer.setAttribute("id", this.id + "autocomplete-list");
+        parentContainer.setAttribute("id", this.id + "-autocomplete-list");
         parentContainer.style.paddingBottom = "1rem";
 
 
