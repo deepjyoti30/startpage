@@ -97,12 +97,7 @@ function autocomplete(inp, passedValues) {
     function closeAllLists(elmnt) {
         /*close all autocomplete lists in the document,
         except the one passed as an argument:*/
-        var x = document.getElementsByClassName("autocomplete-item");
-        for (var i = 0; i < x.length; i++) {
-            if (elmnt != x[i]) {
-                x[i].parentNode.removeChild(x[i]);
-            }
-        }
+        document.getElementsByClassName("autocomplete-items-container")[0].innerHTML = "";
     }
 
     /*execute a function when someone clicks in the document:*/
