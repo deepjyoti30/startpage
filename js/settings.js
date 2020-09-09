@@ -10,16 +10,12 @@
 modalId = "settings"
 closeId = "close"
 jsonContainer = "jsoneditor"
-let gear = false;
 
 // Detect browser
 BROWSER = detectBrowser()
 
 document.getElementById('settings-cog').onclick = function() {
-  if (gear == false) {	
-    gear = true;
-    showSettings()
-  } 
+  showSettings()
 }
 
 function showSettings() {
