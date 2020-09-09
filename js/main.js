@@ -84,6 +84,12 @@ function initSearchBar(jsonData) {
             // Remove the autocomplete boxes
             document.getElementById("search-bar-input-autocomplete-list").style.display = "none";
             return
+        } else if (query == "--settings") {
+            showSettings()
+            document.getElementById(searchBarId).value = ""
+            // Remove the autocomplete boxes
+            document.getElementById("search-bar-input-autocomplete-list").style.display = "none";
+            return
         }
 
         // If not others, then it's probably a search
