@@ -11,8 +11,25 @@ modalId = "settings"
 closeId = "close"
 jsonContainer = "jsoneditor"
 
+let gear = false
+
 // Detect browser
 BROWSER = detectBrowser()
+
+document.getElementById('settings-cog').onclick = function() {
+  if (gear == false) {	
+    gear = true;
+    showSettings()
+  } else if (gear == true) {
+      modalEl.style.display = "none"
+      gear = false;
+      // Get the updated JSON
+      updatedJson = editor.get()
+      BROWSER.storage.sync.set(updatedJson)
+      document.getElementById(jsonContainer).innerHTML = ""
+      location.reload()
+  }
+}
 
 function showSettings() {
     modalEl = document.getElementById(modalId)

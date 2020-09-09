@@ -151,3 +151,12 @@ body {
       color: black;
       text-decoration: none;
       cursor: pointer; }
+
+#settings-cog {
+  position: absolute;
+  bottom: 25px;
+  right: 25px; 
+}
+.cog:hover {
+    fill: white;
+  }
