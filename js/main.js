@@ -1,5 +1,6 @@
 window.onload = function() {
     this.initBody();
+    this.listenForSettings();
 }
 
 
@@ -389,4 +390,14 @@ function extractQuickLinks(passedSqrs) {
 
     // Start the autocomplete
     autocomplete(document.getElementById("search-bar-input"), this.validQuickLinks);
+}
+
+// Listen to key click
+
+function listenForSettings() {
+    document.onkeyup = event => {
+        // Show the settings if ctrl and , is pressed
+        if (event.ctrlKey && event.which == 188)
+            showSettings();
+    }
 }
