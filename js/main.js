@@ -78,13 +78,7 @@ function initSearchBar(jsonData) {
         query = document.getElementById(searchBarId).value
 
         // Open settings
-        if (query == "--setting") {
-            showSettings()
-            document.getElementById(searchBarId).value = ""
-            // Remove the autocomplete boxes
-            document.getElementById("search-bar-input-autocomplete-list").style.display = "none";
-            return
-        } else if (query == "--settings") {
+        if (query == "--setting" || query == "--settings") {
             showSettings()
             document.getElementById(searchBarId).value = ""
             // Remove the autocomplete boxes
