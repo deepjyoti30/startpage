@@ -153,6 +153,8 @@ body {
       cursor: pointer; }
 
 #settings-cog {
+  width: 48px;
+  height: 48px;
   position: absolute;
   bottom: 25px;
   right: 25px; 
