@@ -92,7 +92,8 @@ body {
       background: #2e2e2e;
       padding: 15px 15px;
       border-radius: 6px;
-      min-height: 150px; }
+      min-height: 150px;
+      margin-top: 10px; }
       .main #other-content .sqr h4 {
         font-size: 18px;
         margin: 15px; }
