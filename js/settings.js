@@ -14,6 +14,10 @@ jsonContainer = "jsoneditor"
 // Detect browser
 BROWSER = detectBrowser()
 
+document.getElementById('settings-cog').onclick = function() {
+  showSettings()
+}
+
 function showSettings() {
     modalEl = document.getElementById(modalId)
     closeBtn = document.getElementsByClassName(closeId)[0]
@@ -36,6 +40,14 @@ function showSettings() {
         document.getElementById(jsonContainer).innerHTML = ""
         location.reload()
     }
+    document.getElementById('settings-cog').onclick = () => {
+        modalEl.style.display = "none"
+        // Get the updated JSON
+        updatedJson = editor.get()
+        BROWSER.storage.sync.set(updatedJson)
+        document.getElementById(jsonContainer).innerHTML = ""
+        location.reload()
+    }
 }
 
 async function loadJson(editor) {
@@ -47,7 +59,7 @@ async function loadJson(editor) {
         // Populate the editor
         editor.set(result)
     })
-}
+};
 
 function detectBrowser() {
     // Firefox
@@ -56,5 +68,5 @@ function detectBrowser() {
     else if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime))
         BROWSER = chrome
 
-    return BROWSER
-}
+    return BROWSER;
+};

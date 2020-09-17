@@ -79,7 +79,7 @@ function initSearchBar(jsonData) {
         query = document.getElementById(searchBarId).value
 
         // Open settings
-        if (query == "--setting") {
+        if (query == "--setting" || query == "--settings") {
             showSettings()
             document.getElementById(searchBarId).value = ""
             // Remove the autocomplete boxes
@@ -391,7 +391,6 @@ function extractQuickLinks(passedSqrs) {
     // Start the autocomplete
     autocomplete(document.getElementById("search-bar-input"), this.validQuickLinks);
 }
-
 
 // Listen to key click
 
