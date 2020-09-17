@@ -212,6 +212,9 @@ function parseAndCreate(jsonData) {
      */
     this.userName = jsonData["user"]
 
+    // Enable the settings button if it is enabled
+    if (jsonData["settingsIcon"]) enableCog();
+
     // If the user has not passed any custom message
     if (Object.keys(jsonData).includes("message") && 
             typeof(jsonData["message"]) == "string" &&
@@ -399,5 +402,34 @@ function listenForSettings() {
         // Show the settings if ctrl and , is pressed
         if (event.ctrlKey && event.which == 188)
             showSettings();
+    }
+}
+
+// Handle the settings cog
+
+function enableCog() {
+    /**
+     * Enable the settings cog.
+     * 
+     * It will be disabled by default, however, if the user
+     * wishes to enable it through the config, it will be shown.
+     * 
+     * Once shown, we need to add some event listeners to it as
+     * well so it works the right way.
+     */
+    settingsCogElement = document.getElementById("settings-cog");
+
+    // Unhide it
+    settingsCogElement.style.display = "block";
+
+    // Add event listener
+    settingsCogElement.onclick = function() {
+        editor = showSettings()
+
+        // Add an onclick listener to hide settings if the button is clicked
+        // again.
+        settingsCogElement.onclick = () => {
+            hideSettings(editor);
+        }
     }
 }

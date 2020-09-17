@@ -14,10 +14,6 @@ jsonContainer = "jsoneditor"
 // Detect browser
 BROWSER = detectBrowser()
 
-document.getElementById('settings-cog').onclick = function() {
-  showSettings()
-}
-
 function showSettings() {
     modalEl = document.getElementById(modalId)
     closeBtn = document.getElementsByClassName(closeId)[0]
@@ -33,21 +29,26 @@ function showSettings() {
     loadJson(editor)
 
     closeBtn.onclick = () => {
-        modalEl.style.display = "none"
-        // Get the updated JSON
-        updatedJson = editor.get()
-        BROWSER.storage.sync.set(updatedJson)
-        document.getElementById(jsonContainer).innerHTML = ""
-        location.reload()
+        hideSettings(editor);
     }
-    document.getElementById('settings-cog').onclick = () => {
-        modalEl.style.display = "none"
-        // Get the updated JSON
-        updatedJson = editor.get()
-        BROWSER.storage.sync.set(updatedJson)
-        document.getElementById(jsonContainer).innerHTML = ""
-        location.reload()
-    }
+
+    return editor
+}
+
+function hideSettings(editor) {
+    /**
+     * Hide the settings.
+     * 
+     * This function is to be called when the settings window
+     * is supposed to be hidden, This will automatically
+     * handle saving the updated settings to the localstorage.
+     */
+    modalEl.style.display = "none"
+    // Get the updated JSON
+    updatedJson = editor.get()
+    BROWSER.storage.sync.set(updatedJson)
+    document.getElementById(jsonContainer).innerHTML = ""
+    location.reload()
 }
 
 async function loadJson(editor) {

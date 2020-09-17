@@ -159,7 +159,8 @@ body {
   position: absolute;
   bottom: 25px;
   right: 25px;
-  transition: 2s ease-in; }
+  transition: 2s ease-in;
+  display: none; }
   #settings-cog:hover .cog {
     fill: white;
     stroke: white;

@@ -260,6 +260,7 @@ body {
     bottom: 25px;
     right: 25px;
     transition: 2s ease-in;
+    display: none;
     
     &:hover .cog {
         fill: white;
