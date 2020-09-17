@@ -154,10 +154,13 @@ body {
       cursor: pointer; }
 
 #settings-cog {
-  width: 48px;
-  height: 48px;
+  width: 23px;
+  height: 23px;
   position: absolute;
   bottom: 25px;
-  right: 25px; }
-  #settings-cog .cog:hover {
-    fill: white; }
+  right: 25px;
+  transition: 2s ease-in; }
+  #settings-cog:hover .cog {
+    fill: white;
+    stroke: white;
+    transition: 2s ease-in; }
