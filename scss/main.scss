@@ -143,6 +143,11 @@ body {
             h4 {
                 font-size: 18px;
                 margin: 15px;
+
+                a {
+                    color: inherit;
+                    font-size: inherit;
+                }
           }
 
             &:hover {
