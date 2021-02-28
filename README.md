@@ -3,8 +3,6 @@
 <h4>Just another minimal startpage for browsers.</h4>
 <h4>Added Nord theme for the startpage</h4>
 <br>
-<a href="https://github.com/deepjyoti30/startpage">Forked from deepjyoti30/startpage</a>
-<br>
 </div>
 
 <img src=".github/startpage.png">
