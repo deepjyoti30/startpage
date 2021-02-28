@@ -14,8 +14,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #212121;
-  color: #fff; }
+  background: #2e3440;
+  color: #e5e9f0; }
 
 .main {
   width: 100%;
@@ -25,7 +25,7 @@ body {
     display: inline-block;
     vertical-align: top; }
   .main #date-text, .main #weather-text {
-    color: #d9d9d9; }
+    color: #e5e9f0; }
   .main #message-text {
     font-size: 23px; }
   .main #search-bar {
@@ -38,7 +38,7 @@ body {
     .main #search-bar #search-bar-input {
       height: 50px;
       width: 100%;
-      background: #2e2e2e;
+      background: #434c5e;
       box-shadow: none;
       border: none;
       text-align: center;
@@ -46,7 +46,7 @@ body {
       outline: none;
       padding: 7px 14px;
       font-size: 18px;
-      color: #fff;
+      color: #e5e9f0;
       box-sizing: border-box; }
       .main #search-bar #search-bar-input:focus {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -58,25 +58,25 @@ body {
       right: 0;
       z-index: 99;
       border-radius: 6px;
-      background: #2e2e2e;
+      background: #434c5e;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
       .main #search-bar .autocomplete-items-container .autocomplete-item {
         width: 100%;
-        background: #2e2e2e;
+        background: #434c5e;
         box-shadow: none;
         border: none;
         text-align: center;
         outline: none;
         padding: 7px 14px;
         font-size: 18px;
-        color: #fff;
+        color: #e5e9f0;
         box-sizing: border-box;
         z-index: -1; }
         .main #search-bar .autocomplete-items-container .autocomplete-item:hover {
-          background: #3b3b3b; }
+          background: #4c566a; }
       .main #search-bar .autocomplete-items-container .autocomplete-active {
-        background: #353535; }
+        background: #4c566a; }
     @media only screen and (max-width: 791px) {
       .main #search-bar {
         width: 65%; } }
@@ -89,7 +89,7 @@ body {
       margin-left: 5px;
       margin-right: 5px;
       width: 170px;
-      background: #2e2e2e;
+      background: #434c5e;
       padding: 15px 15px;
       border-radius: 6px;
       min-height: 150px;
@@ -97,41 +97,38 @@ body {
       .main #other-content .sqr h4 {
         font-size: 18px;
         margin: 15px; }
-        .main #other-content .sqr h4 a {
-          color: inherit;
-          font-size: inherit; }
       .main #other-content .sqr:hover {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
         transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
       .main #other-content .sqr a {
-        color: #9E9E9E;
+        color: #e5e9f0;
         font-size: 16px;
         transition: .1s ease-in;
         display: block;
         text-decoration: none;
         line-height: 22px; }
         .main #other-content .sqr a:hover {
-          color: #fff;
+          color: #e5e9f0;
           text-decoration: none;
           transition: .1s ease-in; }
     .main #other-content .media h4, .main #other-content .media a:hover {
-      color: #4DD0E1; }
+      color: #bf616a; }
     .main #other-content .work h4, .main #other-content .work a:hover {
-      color: #F06292; }
+      color: #d08770; }
     .main #other-content .social h4, .main #other-content .social a:hover {
-      color: #FFF176; }
+      color: #ebcb8b; }
     .main #other-content .others h4, .main #other-content .others a:hover {
-      color: #81C784; }
+      color: #a3be8c; }
     .main #other-content .funky h4, .main #other-content .funky a:hover {
-      color: #4DB6AC; }
+      color: #b48ead; }
     .main #other-content .purple h4, .main #other-content .purple a:hover {
-      color: #9575CD; }
+      color: #8fbcbb; }
     .main #other-content .upvoty h4, .main #other-content .upvoty a:hover {
-      color: #FF8A65; }
+      color: #88c0d0; }
     .main #other-content .indigo h4, .main #other-content .indigo a:hover {
-      color: #7986CB; }
+      color: #81a1c1; }
     .main #other-content .foxxy h4, .main #other-content .foxxy a:hover {
-      color: #A1887F; }
+      color: #5e81ac; }
 
 .settings-modal {
   display: none;
@@ -140,14 +137,14 @@ body {
   width: 80vw;
   height: 80vh;
   overflow: auto;
-  background: #fff;
-  color: #212121;
+  background: #e5e9f0;
+  color: #2e3440;
   padding: 15px; }
   .settings-modal .modal-content {
     width: 100%;
     height: 100%; }
   .settings-modal .close {
-    color: #aaa;
+    color: #e5e9f0;
     float: right;
     font-size: 28px;
     font-weight: bold; }

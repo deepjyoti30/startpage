@@ -1,51 +1,107 @@
 {
+  "disable24Hour": true,
+  "disableDate": false,
+  "disableMessage": false,
+  "disableSearchBar": false,
+  "disableWeather": true,
+  "searchEngine": "Google",
+  "settingsIcon": true,
   "squares": [
-    { "name": "media",
-      "color": "red",
+    {
+      "color": "#bf616a",
       "links": [
-        { "name": "Spotify", "url": "https://open.spotify.com/" },
-        { "name": "YoutubeMusic", "url": "https://music.youtube.com/" },
-        { "name": "Netflix", "url": "https://netflix.com" },
-        { "name": "Youtube", "url": "https://youtube.com" }
-      ]
-    },
-    { "name": "work",
-      "color": "#26A69A",
-      "links": [
-        { "name": "Github", "url": "https://github.com" },
-        { "name": "Heroku", "url": "http://heroku.com/" },
-        { "name": "localhost", "url": "http://localhost:8000/" }
-      ]
-    },
-    { "name": "social",
-      "links": [
-        { "name": "Reddit", "url": "https://reddit.com" },
-        { "name": "Unixporn Love", "url": "https://deepjyoti30.github.io/unixporn-love/" },
-        { "name": "r/unixporn", "url": "https://www.reddit.com/r/unixporn/" },
-        { "name": "r/mk", "url": "https://www.reddit.com/r/MechanicalKeyboards/" }
-      ]
+        {
+          "name": "Youtube",
+          "url": "https://www.youtube.com/"
+        },
+        {
+          "name": "LBRY",
+          "url": "https://odysee.com/"
+        },
+        {
+          "name": "Invidious",
+          "url": "https://invidious.kavin.rocks"
+        }
+      ],
+      "name": "Watch"
     },
     {
-      "name": "Others",
+      "color": "#d08770",
       "links": [
-        {"name": "Material Colors", "url": "http://materialuicolors.co/"},
-        {"name": "Gmail", "url": "http://gmail.com/"},
-        {"name": "neo4j Local", "url": "http://localhost:7474/"},
-        {"name": "rarbg", "url": "http://rarbg.to"}
-      ]
+        {
+          "name": "Instagram",
+          "url": "https://instagram.com"
+        },
+        {
+          "name": "Mastodon",
+          "url": "https://distrotoot.com"
+        },
+        {
+          "name": "Telegram",
+          "url": "https://evgeny-nadymov.github.io/telegram-react/"
+        }
+      ],
+      "name": "Social"
+    },
+    {
+      "color": "#ebcb8b",
+      "links": [
+        {
+          "name": "Ricing",
+          "url": "https://reddit.com/r/unixporn"
+        },
+        {
+          "name": "Startpages",
+          "url": "https://reddit.com/r/startpages"
+        },
+        {
+          "name": "Others",
+          "url": "https://reddit.com"
+        }
+      ],
+      "name": "Reddit"
+    },
+    {
+      "color": "#a3be8c",
+      "links": [
+        {
+          "name": "Arch wiki",
+          "url": "https://wiki.archlinux.org/"
+        },
+        {
+          "name": "It's FOSS",
+          "url": "https://itsfoss.com/"
+        },
+        {
+          "name": "Distrotube",
+          "url": "https://distrotube.com"
+        }
+      ],
+      "name": "Linux"
+    },
+    {
+      "color": "#b48ead",
+      "links": [
+        {
+          "name": "Github",
+          "url": "https://github.com/WitherCubes"
+        },
+        {
+          "name": "Gitlab",
+          "url": "https://gitlab.com/WitherCubes"
+        },
+        {
+          "name": "Speedtest",
+          "url": "https://speedtest.net/"
+        }
+      ],
+      "name": "Misc"
     }
   ],
-  "searchEngine":"DuckDuckGo",
-  "user": "Deepjyoti",
-  "disableMessage": false,
-  "disableDate": false,
-  "disableSearchBar": false,
-  "disable24Hour": false,
-  "disableWeather": true,
-  "timeZone": "America/Los_Angeles",
+  "timeZone": "Asia/Kolkata",
+  "user": "Withercubes",
   "weatherConf": {
-    "location": "Pune India",
+    "location": "Erode",
     "unit": "cel"
-  },
-  "settingsIcon": false
+  }
 }

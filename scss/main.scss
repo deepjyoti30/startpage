@@ -1,15 +1,15 @@
-$background: #212121;
-$foreground: #fff;
+$background: #2e3440;
+$foreground: #e5e9f0;
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-$media: #4DD0E1;
-$work: #F06292;
-$social: #FFF176;
-$others: #81C784;
-$funky: #4DB6AC;
-$purple: #9575CD;
-$upvoty: #FF8A65;
-$indigo: #7986CB;
-$foxxy: #A1887F;
+$media: #bf616a;
+$work: #d08770;
+$social: #ebcb8b;
+$others: #a3be8c;
+$funky: #b48ead;
+$purple: #8fbcbb;
+$upvoty: #88c0d0;
+$indigo: #81a1c1;
+$foxxy: #5e81ac;
 
 .roboto {
     font-family: 'Roboto', sans-serif;
@@ -143,11 +143,6 @@ body {
             h4 {
                 font-size: 18px;
                 margin: 15px;
-
-                a {
-                    color: inherit;
-                    font-size: inherit;
-                }
           }
 
             &:hover {
@@ -156,7 +151,7 @@ body {
             }
 
             a {
-                color: #9E9E9E;
+                color: #4c566a;
                 font-size: 16px;
                 transition: .1s ease-in;
                 display: block;
@@ -236,7 +231,7 @@ body {
     height: 80vh;
     overflow: auto;
     background: $foreground;
-    color: #212121;
+    color: #2e3440;
     padding: 15px;
 
     .modal-content {
@@ -245,7 +240,7 @@ body {
     }
 
     .close {
-        color: #aaa;
+        color: #4c566a;
         float: right;
         font-size: 28px;
         font-weight: bold;

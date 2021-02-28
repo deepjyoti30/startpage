@@ -265,7 +265,6 @@ function parseAndCreate(jsonData) {
 function createSqr(sqrData, index) {
     // Create a new square division with the passed element
     name = sqrData["name"];
-    link = sqrData["url"];
     links = sqrData["links"];
     color = sqrData["color"];
 
@@ -287,7 +286,9 @@ function createSqr(sqrData, index) {
 
     div.classList.add(customClass);
 
-    h4 = getTitle(name, link);
+    h4 = document.createElement("h4")
+    h4.textContent = name
+
 
     div.appendChild(h4)
 
@@ -306,32 +307,6 @@ function createSqr(sqrData, index) {
     })
 
     return div
-}
-
-function getTitle(titleContent, linkHref=null) {
-    /**
-     * Create the title for the sqr card.
-     * 
-     * The card will be optionally clicable and will open
-     * a new link.
-     * 
-     * If the link is not passed in the config then the title
-     * will not be clickable.
-     */
-    h4 = document.createElement("h4");
-
-    if (!linkHref) {
-        h4.textContent = titleContent;
-        return h4;
-    }
-
-    // If the link is passed, create a nested child
-    a = document.createElement("a");
-    a.setAttribute("href", linkHref);
-    a.textContent = titleContent;
-
-    h4.appendChild(a);
-    return h4;
 }
 
 // Utility functions
