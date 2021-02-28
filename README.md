@@ -1,8 +1,7 @@
 <div align="center">
 <h1>Minimal Startpage</h1>
 <h4>Just another minimal startpage for browsers.</h4>
-<h4>Forked from</h4>
-<a href="https://github.com/deepjyoti30/startpage">deepjyoti30/startpage</a>
+<a href="https://github.com/deepjyoti30/startpage">Forked from deepjyoti30/startpage</a>
 </div>
 
 <img src=".github/startpage.png">
