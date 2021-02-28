@@ -1,9 +1,10 @@
 <div align="center">
 <h1>Minimal Startpage</h1>
 <h4>Just another minimal startpage for browsers.</h4>
+<h4>Forked from deepjyoti30/startpage</h4>
 </div>
 
-<img src=".github/startpage.gif">
+<img src=".github/startpage.png">
 
 <div align="center">
 <br>
