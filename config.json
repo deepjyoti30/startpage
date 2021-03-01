@@ -1,7 +1,7 @@
 {
   "squares": [
     { "name": "media",
-      "color": "red",
+      "color": "#bf616a",
       "links": [
         { "name": "Spotify", "url": "https://open.spotify.com/" },
         { "name": "YoutubeMusic", "url": "https://music.youtube.com/" },
@@ -10,7 +10,7 @@
       ]
     },
     { "name": "work",
-      "color": "#26A69A",
+      "color": "#d08770",
       "links": [
         { "name": "Github", "url": "https://github.com" },
         { "name": "Heroku", "url": "http://heroku.com/" },
@@ -18,6 +18,7 @@
       ]
     },
     { "name": "social",
+      "color": "#ebcb8b",
       "links": [
         { "name": "Reddit", "url": "https://reddit.com" },
         { "name": "Unixporn Love", "url": "https://deepjyoti30.github.io/unixporn-love/" },
@@ -27,6 +28,7 @@
     },
     {
       "name": "Others",
+      "color": "#a3be8c",
       "links": [
         {"name": "Material Colors", "url": "http://materialuicolors.co/"},
         {"name": "Gmail", "url": "http://gmail.com/"},
