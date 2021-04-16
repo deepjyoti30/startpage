@@ -72,7 +72,8 @@ body {
         font-size: 18px;
         color: #fff;
         box-sizing: border-box;
-        z-index: -1; }
+        z-index: -1;
+        cursor: pointer; }
         .main #search-bar .autocomplete-items-container .autocomplete-item:hover {
           background: #3b3b3b; }
       .main #search-bar .autocomplete-items-container .autocomplete-active {
