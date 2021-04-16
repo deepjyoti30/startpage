@@ -269,6 +269,12 @@ function parseAndCreate(jsonData) {
         if (styleData["dateColor"]) {
             document.getElementById(dateId).style.color = styleData["dateColor"]
         }
+        if (styleData["lineColor"]) {
+            document.getElementById(lineId).style.color = styleData["lineColor"]
+        }
+        if (styleData["weatherColor"]) {
+            document.getElementById(weatherId).style.color = styleData["weatherColor"]
+        }
         if (styleData["searchColor"]) {
             document.getElementById(searchBarId).style.color = styleData["searchColor"]
         }

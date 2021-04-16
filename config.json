@@ -52,6 +52,8 @@
     "backgroundColor": "#212121",
     "messageColor": "#fff",
     "dateColor": "#d9d9d9",
+    "lineColor": "#fff",
+    "weatherColor": "#d9d9d9",
     "searchColor": "#fff",
     "searchBackgroundColor": "#2e2e2e",
     "squareColor": "#9e9e9e",
