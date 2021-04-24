@@ -285,6 +285,9 @@ function parseAndCreate(jsonData) {
         if (styleData["searchPlaceholderColor"]) {
             document.getElementById(searchBarId).classList.add(createPlaceholderStyleClass(styleData["searchPlaceholderColor"]));
         }
+        if (styleData["autocompleteHighlightBackgroundColor"]) {
+            addAutocompleteStyleClass(styleData["autocompleteHighlightBackgroundColor"]);
+        }
         if (styleData["squareBackgroundColor"]) {
             elements = document.getElementsByClassName("sqr")
             var i;
@@ -469,6 +472,26 @@ function createPlaceholderStyleClass(color) {
     document.getElementsByTagName('head')[0].appendChild(style);
 
     return newClassName;
+}
+
+function addAutocompleteStyleClass(color) {
+    /**
+     * Add some colors for the autocomplete classes in order to
+     * keep. We need to add styles for :hover property so it is
+     * easier to just inject some CSS.
+     */
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.innerHTML = `
+    .autocomplete-item:hover {
+        background: ${color} !important;
+    }
+
+    .autocomplete-active {
+        background: ${color} !important;
+    }
+    `;
+    document.getElementsByTagName('head')[0].appendChild(style);
 }
 
 
