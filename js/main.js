@@ -135,7 +135,7 @@ function handleMessage(userName) {
      * Else, add the username before the message.
      */
     var builtMsg = buildMsg()
-    builtMsg == "" ? 
+    builtMsg == "" ?
         builtMsg = `Hello ${userName}` : builtMsg = `Hey ${userName}, ${builtMsg}!`
     return builtMsg;
 }
@@ -146,13 +146,13 @@ function updateTime() {
      */
     currentDate = new Date()
     options = {
-                day: 'numeric',
-                month: 'short',
-                hour: 'numeric',
-                minute: 'numeric',
-                hour12: disable24Hour,
-                timeZone: timeZ
-            }
+            day: 'numeric',
+            month: 'short',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: disable24Hour,
+            timeZone: timeZ
+    }
     finalDate = currentDate.toLocaleString(undefined, options)
     document.getElementById(dateId).textContent = finalDate
 }
@@ -173,7 +173,7 @@ function updateWeather(weatherConfig) {
     userLocation = weatherConfig["location"].replace(/\ /g, ",")
     passedUnit = weatherConfig["unit"]
     unit = validWeatherUnit.includes(passedUnit.substring(0, 3)) ?
-            passedUnit : "cel"
+        passedUnit : "cel"
 
     fetchUrl = apiUrl + `?q=${userLocation}&appid=${appId}&units=metric`
 
@@ -184,7 +184,7 @@ function updateWeather(weatherConfig) {
             weatherType = jsonData["weather"][0]["main"]
 
             temp = !unit.includes("cel") ?
-                        getFahrenheit(temp) + "&deg;F" : temp + "&deg;C"
+                getFahrenheit(temp) + "&deg;F" : temp + "&deg;C"
             weatherText = temp + ", " + indexUppercase(weatherType)
             document.getElementById(weatherId).innerHTML = weatherText
         })
@@ -216,13 +216,13 @@ function parseAndCreate(jsonData) {
     if (jsonData["settingsIcon"]) enableCog();
 
     // If the user has not passed any custom message
-    if (Object.keys(jsonData).includes("message") && 
+    if (Object.keys(jsonData).includes("message") &&
             typeof(jsonData["message"]) == "string" &&
             jsonData["message"] != "")
         builtMsg = jsonData["message"]
     else
         builtMsg = this.handleMessage(this.userName);
-    
+
     document.getElementById(messageId).textContent = builtMsg
     // Check if 24 hour is disabled
     disable24Hour = jsonData["disable24Hour"]
@@ -252,14 +252,60 @@ function parseAndCreate(jsonData) {
 
     sqrs = jsonData["squares"]
 
-    // Extract the quicklinks from the sqrs
-    extractQuickLinks(sqrs);
-
     sqrs.forEach((element, index) => {
         sqr = createSqr(element, index)
         document.getElementById(otherContentId).appendChild(sqr)
     })
-    
+
+    // Apply styling if present
+    if (jsonData["style"]) {
+        styleData = jsonData["style"]
+        if (styleData["backgroundColor"]) {
+            document.body.style.backgroundColor = styleData["backgroundColor"]
+        }
+        if (styleData["messageColor"]) {
+            document.getElementById(messageId).style.color = styleData["messageColor"]
+        }
+        if (styleData["dateColor"]) {
+            document.getElementById(dateId).style.color = styleData["dateColor"]
+        }
+        if (styleData["lineColor"]) {
+            document.getElementById(lineId).style.color = styleData["lineColor"]
+        }
+        if (styleData["weatherColor"]) {
+            document.getElementById(weatherId).style.color = styleData["weatherColor"]
+        }
+        if (styleData["searchColor"]) {
+            document.getElementById(searchBarId).style.color = styleData["searchColor"]
+        }
+        if (styleData["searchBackgroundColor"]) {
+            document.getElementById(searchBarId).style.backgroundColor = styleData["searchBackgroundColor"]
+            autocompleteBackgroundColor = styleData["searchBackgroundColor"]
+        }
+        if (styleData["searchPlaceholderColor"]) {
+            document.getElementById(searchBarId).classList.add(createPlaceholderStyleClass(styleData["searchPlaceholderColor"]));
+        }
+        if (styleData["autocompleteHighlightBackgroundColor"]) {
+            addAutocompleteStyleClass(styleData["autocompleteHighlightBackgroundColor"]);
+        }
+        if (styleData["squareBackgroundColor"]) {
+            elements = document.getElementsByClassName("sqr")
+            var i;
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.backgroundColor = styleData["squareBackgroundColor"]
+            }
+        }
+        if (styleData["squareColor"]) {
+            elements = document.querySelectorAll(".sqr a")
+            var i;
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.color = styleData["squareColor"]
+            }
+        }
+    }
+
+    // Extract the quicklinks from the sqrs
+    extractQuickLinks(sqrs, jsonData["style"]);
 }
 
 function createSqr(sqrData, index) {
@@ -294,7 +340,7 @@ function createSqr(sqrData, index) {
     links.forEach(element => {
         aName = element["name"]
         aHref = element["url"]
-        
+
         a = document.createElement("a")
         attrHref = document.createAttribute("href")
         attrHref.value = aHref
@@ -403,8 +449,53 @@ function createClass(color) {
     return newClassName;
 }
 
+function createPlaceholderStyleClass(color) {
+    /**
+     * Create a new class with for placeholder styling.
+     * 
+     * This is pretty much a continuation of what has done preivously
+     * in the createClass function.
+     */
+    var style = document.createElement('style');
+    const newClassName = `bg-${Math.random().toString(36).substring(7)}`;
+    style.type = 'text/css';
+    style.innerHTML = `::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: ${color} !important;
+        opacity: 1; /* Firefox */
+      }
+      
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: ${color} !important;
+      }
+      
+      ::-ms-input-placeholder { /* Microsoft Edge */color: ${color} !important;}`;
+    document.getElementsByTagName('head')[0].appendChild(style);
 
-function extractQuickLinks(passedSqrs) {
+    return newClassName;
+}
+
+function addAutocompleteStyleClass(color) {
+    /**
+     * Add some colors for the autocomplete classes in order to
+     * keep. We need to add styles for :hover property so it is
+     * easier to just inject some CSS.
+     */
+    var style = document.createElement("style");
+    style.type = "text/css";
+    style.innerHTML = `
+    .autocomplete-item:hover {
+        background: ${color} !important;
+    }
+
+    .autocomplete-active {
+        background: ${color} !important;
+    }
+    `;
+    document.getElementsByTagName('head')[0].appendChild(style);
+}
+
+
+function extractQuickLinks(passedSqrs, style) {
     /**
      * Extract the quicklinks passed in the config
      * 
@@ -417,7 +508,7 @@ function extractQuickLinks(passedSqrs) {
     });
 
     // Start the autocomplete
-    autocomplete(document.getElementById("search-bar-input"), this.validQuickLinks);
+    autocomplete(document.getElementById("search-bar-input"), this.validQuickLinks, style);
 }
 
 // Listen to key click

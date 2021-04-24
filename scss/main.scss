@@ -108,6 +108,7 @@ body {
                 color: $foreground;
                 box-sizing: border-box;
                 z-index: -1;
+                cursor: pointer;
 
                 &:hover {
                     background: lighten($background, 10);

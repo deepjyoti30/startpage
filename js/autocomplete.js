@@ -1,4 +1,4 @@
-function autocomplete(inp, passedValues) {
+function autocomplete(inp, passedValues, style) {
     var currentFocus;
 
     /*execute a function when someone writes in the text field:*/
@@ -18,6 +18,9 @@ function autocomplete(inp, passedValues) {
         parentContainer.setAttribute("id", this.id + "-autocomplete-list");
         parentContainer.style.paddingBottom = "1rem";
 
+        if(style["searchBackgroundColor"]) {
+            parentContainer.style.backgroundColor = style["searchBackgroundColor"];
+        }
 
         /*for each item in the array...*/
         Object.keys(passedValues).forEach((el, i, arr) => {
@@ -30,6 +33,14 @@ function autocomplete(inp, passedValues) {
             // Add the url as an attribute
             item.setAttribute('url', passedValues[el]);
 
+            if(style["searchBackgroundColor"]) {
+                item.style.backgroundColor = style["searchBackgroundColor"];
+            }
+
+            if(style["searchColor"]) {
+                item.style.color = style["searchColor"];
+            }
+            
             /*make the matching letters bold:*/
             item.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
             item.innerHTML += arr[i].substr(val.length);
