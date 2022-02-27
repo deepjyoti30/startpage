@@ -13,6 +13,10 @@
  */
 
 
+// Define defaults
+const defaultSearchEndpoint = "/search?q="
+
+
 function searchQuickLinks(query, config) {
     /**
      * Check if the quicklink matches any of the defined
@@ -81,12 +85,20 @@ function getInvocationKeyUrl(key, quickLinks) {
     if (typeof(quickLinkValue) == "string") {
         return {
             URL: quickLinkValue,
-            Search: "/search?q="
+            Search: defaultSearchEndpoint
         }
     }
 
     // If it is an object
     if (typeof(quickLinkValue) == "object") {
+        // Verify the object has the URL key
+        if (!Object.keys(quickLinkValue).includes("URL")) return null
+
+        // If the search field is not present, replace it with the default value
+        if (!Object.keys(quickLinkValue).includes("Search")) {
+            quickLinkValue["Search"] = defaultSearchEndpoint
+        }
+    
         return quickLinkValue
     }
 
