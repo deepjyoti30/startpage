@@ -42,7 +42,7 @@ function searchQuickLinks(query, config) {
     if (quickLinkValue == null) return false
 
     // Replace the special characters in the URL
-    query = query.splice(0, 2)
+    query = query.slice(2)
 
     // If it is not null, we need to build an URL accordingly and
     // open it.
@@ -141,6 +141,6 @@ function quickLinkDirect(query, quickLinkValue) {
      * hitting.
      * @param {string} quickLinkValue.URL - URL to hit the quick link query to.
      */
-    const directURL = quickLinkValue.URL + query
+    const directURL = quickLinkValue.URL + "/" + query
     window.location = directURL
 }
