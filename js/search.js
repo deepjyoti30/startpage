@@ -27,7 +27,8 @@ function searchQuickLinks(query, config) {
      * @returns {boolean} Status of whether quick link invocation was succesfull or not
      */
     // Make sure query contains a search or direct syntax
-    if (!["'", "/"].includes(query[1])) return false
+    const quickAction = query[1]
+    if (!["'", "/"].includes(quickAction)) return false
 
     // Make sure the quick link invocation key is present in the config.
     const quickLinkInvocationKey = query[0]
@@ -35,6 +36,21 @@ function searchQuickLinks(query, config) {
     quickLinkValue = getInvocationKeyUrl(quickLinkInvocationKey, config.quickLinks)
 
     if (quickLinkValue == null) return false
+
+    // If it is not null, we need to build an URL accordingly and
+    // open it.
+    switch(quickAction) {
+        case "'":
+            // Search
+            break
+        case "/":
+            // Direct link
+            break
+        default:
+            return false
+    }
+
+    return true
 }
 
 
