@@ -46,6 +46,7 @@ function searchQuickLinks(query, config) {
     switch(quickAction) {
         case "'":
             // Search
+            quickLinkSearch(query, quickLinkValue)
             break
         case "/":
             // Direct link
@@ -103,4 +104,22 @@ function getInvocationKeyUrl(key, quickLinks) {
     }
 
     return null
+}
+
+function quickLinkSearch(query, quickLinkValue) {
+    /**
+     * Search the query using the quicklink values passed.
+     * 
+     * This function should be called only if the user passed
+     * a search query in a valid format and the quicklink key
+     * was valid.
+     * 
+     * @param {string} query - Query that the user typed in the search bar
+     * @param {Object} quickLinkValue - Quick link value object to be used for
+     * hitting.
+     * @param {string} quickLinkValue.URL - URL to hit the quick link query to.
+     * @param {string} quickLinkValue.Search - Endpoint to be used for searching the query.
+     */
+    const searchURL = quickLinkValue.URL + quickLinkValue.Search + query
+    window.location = searchURL
 }
