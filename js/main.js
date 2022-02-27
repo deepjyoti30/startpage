@@ -1,4 +1,5 @@
 window.onload = function() {
+    this.populateVersionInSettings();
     this.initBody();
     this.listenForSettings();
 }
@@ -86,6 +87,10 @@ function initSearchBar(jsonData) {
             document.getElementById("search-bar-input-autocomplete-list").style.display = "none";
             return
         }
+
+        // Invoke quicklinks
+        const wasInvoked = searchQuickLinks(query, jsonData)
+        if (wasInvoked) return
 
         // If not others, then it's probably a search
         query = query.replace(/\ /g, "+")
@@ -214,6 +219,9 @@ function parseAndCreate(jsonData) {
 
     // Enable the settings button if it is enabled
     if (jsonData["settingsIcon"]) enableCog();
+
+    // Set the page title if it is passed by the user
+    if (jsonData["title"]) document.title = jsonData["title"]
 
     // If the user has not passed any custom message
     if (Object.keys(jsonData).includes("message") &&
