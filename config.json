@@ -60,5 +60,10 @@
     "squareColor": "#9e9e9e",
     "squareBackgroundColor": "#2e2e2e",
     "autocompleteHighlightBackgroundColor": "#3B3B3B"
+  },
+  "quickLinks": {
+    "r": "https://reddit.com",
+    "g": "https://github.com",
+    "y": "https://youtube.com"
   }
 }
