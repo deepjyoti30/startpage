@@ -1,4 +1,5 @@
 window.onload = function() {
+    this.populateVersionInSettings();
     this.initBody();
     this.listenForSettings();
 }
