@@ -215,6 +215,9 @@ function parseAndCreate(jsonData) {
     // Enable the settings button if it is enabled
     if (jsonData["settingsIcon"]) enableCog();
 
+    // Set the page title if it is passed by the user
+    if (jsonData["title"]) document.title = jsonData["title"]
+
     // If the user has not passed any custom message
     if (Object.keys(jsonData).includes("message") &&
             typeof(jsonData["message"]) == "string" &&
