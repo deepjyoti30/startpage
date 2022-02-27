@@ -2,7 +2,7 @@
  * Handle version related methods
  */
 
-const VERSION = "v0.3"
+const VERSION = "v0.4"
 
 
 function populateVersionInSettings() {
