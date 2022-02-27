@@ -41,7 +41,8 @@ function searchQuickLinks(query, config) {
 
     if (quickLinkValue == null) return false
 
-    // TODO: Replace the special characters in the URL
+    // Replace the special characters in the URL
+    query = query.splice(0, 2)
 
     // If it is not null, we need to build an URL accordingly and
     // open it.
