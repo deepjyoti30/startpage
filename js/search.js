@@ -41,6 +41,8 @@ function searchQuickLinks(query, config) {
 
     if (quickLinkValue == null) return false
 
+    // TODO: Replace the special characters in the URL
+
     // If it is not null, we need to build an URL accordingly and
     // open it.
     switch(quickAction) {
@@ -50,6 +52,7 @@ function searchQuickLinks(query, config) {
             break
         case "/":
             // Direct link
+            quickLinkDirect(query, quickLinkValue)
             break
         default:
             return false
@@ -122,4 +125,21 @@ function quickLinkSearch(query, quickLinkValue) {
      */
     const searchURL = quickLinkValue.URL + quickLinkValue.Search + query
     window.location = searchURL
+}
+
+function quickLinkDirect(query, quickLinkValue) {
+    /**
+     * Make a direct hit to the URL after building it using the
+     * quicklink URL and the query.
+     * 
+     * This function should be called if the query contains a valid
+     * direct link invocation in it.
+     * 
+     * @param {string} query - Query that the user typed in the search bar
+     * @param {Object} quickLinkValue - Quick link value object to be used for
+     * hitting.
+     * @param {string} quickLinkValue.URL - URL to hit the quick link query to.
+     */
+    const directURL = quickLinkValue.URL + query
+    window.location = directURL
 }
