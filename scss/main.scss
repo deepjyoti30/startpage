@@ -1,276 +1,290 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 $background: #212121;
 $foreground: #fff;
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-$media: #4DD0E1;
-$work: #F06292;
-$social: #FFF176;
-$others: #81C784;
-$funky: #4DB6AC;
-$purple: #9575CD;
-$upvoty: #FF8A65;
-$indigo: #7986CB;
-$foxxy: #A1887F;
+$media: #4dd0e1;
+$work: #f06292;
+$social: #fff176;
+$others: #81c784;
+$funky: #4db6ac;
+$purple: #9575cd;
+$upvoty: #ff8a65;
+$indigo: #7986cb;
+$foxxy: #a1887f;
 
 .roboto {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 // JetBrains Mono
 @font-face {
-    font-family: "JetBrains Mono";
-    src: url("../fonts/woff/JetBrainsMono-Regular.woff") format("woff"),
-         url("../fonts/woff2/JetBrainsMono-Regular.woff2") format("woff2");
+  font-family: "JetBrains Mono";
+  src: url("../fonts/woff/JetBrainsMono-Regular.woff") format("woff"),
+    url("../fonts/woff2/JetBrainsMono-Regular.woff2") format("woff2");
 }
 
 .jetbrains-mono {
-    font-family: 'JetBrains Mono';
+  font-family: "JetBrains Mono";
 }
 
 body {
-    height: 97.5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: $background;
-    color: $foreground;
-    @extend .jetbrains-mono;
+  height: 97.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $background;
+  color: $foreground;
+  @extend .jetbrains-mono;
 }
 
 .main {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 
-    #date {
-        h2 {
-            padding-top: 15px;
-            display: inline-block;
-            vertical-align: top;
-        }
+  #date {
+    h2 {
+      padding-top: 15px;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  #date-text,
+  #weather-text {
+    color: darken($foreground, 15);
+  }
+
+  #message-text {
+    font-size: 23px;
+  }
+
+  #search-bar {
+    width: 50%;
+    margin: 0 auto 50px auto;
+    height: 45px;
+    padding-top: 35px;
+    position: relative;
+    display: inline-block;
+
+    #search-bar-input {
+      height: 50px;
+      width: 100%;
+      background: lighten($background, 5);
+      box-shadow: none;
+      border: none;
+      text-align: center;
+      border-radius: 6px;
+      outline: none;
+      padding: 7px 14px;
+      font-size: 18px;
+      color: $foreground;
+      box-sizing: border-box;
+
+      &:focus {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
     }
 
-    #date-text, #weather-text {
-        color: darken($foreground, 15);
+    .autocomplete-items-container {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      border-radius: 6px;
+      background: lighten($background, 5);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+      .autocomplete-item {
+        width: 100%;
+        background: lighten($background, 5);
+        box-shadow: none;
+        border: none;
+        text-align: center;
+        outline: none;
+        padding: 7px 14px;
+        font-size: 18px;
+        color: $foreground;
+        box-sizing: border-box;
+        z-index: -1;
+        cursor: pointer;
+
+        &:hover {
+          background: lighten($background, 10);
+        }
+      }
+
+      .autocomplete-active {
+        background: lighten($background, 8);
+      }
     }
 
-    #message-text {
-        font-size: 23px;
+    @media only screen and (max-width: 791px) {
+      width: 65%;
+    }
+  }
+
+  #other-content {
+    margin: 40px auto;
+    padding: 10px 0;
+
+    .sqr {
+      vertical-align: top;
+      display: inline-block;
+      margin-left: 5px;
+      margin-right: 5px;
+      width: 170px;
+      background: lighten($background, 5);
+      padding: 15px 15px;
+      border-radius: 6px;
+      min-height: 150px;
+      margin-top: 10px;
+
+      h4 {
+        font-size: 18px;
+        margin: 15px;
+
+        a {
+          color: inherit;
+          font-size: inherit;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      }
+
+      a {
+        color: #9e9e9e;
+        font-size: 16px;
+        transition: 0.1s ease-in;
+        display: block;
+        text-decoration: none;
+        line-height: 22px;
+
+        &:hover {
+          color: $foreground;
+          text-decoration: none;
+          transition: 0.1s ease-in;
+        }
+      }
     }
 
-    #search-bar {
-        width: 50%;
-        margin: 0 auto 50px auto;
-        height: 45px;
-        padding-top: 35px;
-        position: relative;
-        display: inline-block;
-
-
-        #search-bar-input {
-            height: 50px;
-            width: 100%;
-            background: lighten($background, 5);
-            box-shadow: none;
-            border: none;
-            text-align: center;
-            border-radius: 6px;
-            outline: none;
-            padding: 7px 14px;
-            font-size: 18px;
-            color: $foreground;
-            box-sizing: border-box;
-
-            &:focus {
-                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-            }
-        }
-
-        .autocomplete-items-container {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            z-index: 99;
-            border-radius: 6px;
-            background: lighten($background, 5);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-
-            .autocomplete-item {
-                width: 100%;
-                background: lighten($background, 5);
-                box-shadow: none;
-                border: none;
-                text-align: center;
-                outline: none;
-                padding: 7px 14px;
-                font-size: 18px;
-                color: $foreground;
-                box-sizing: border-box;
-                z-index: -1;
-                cursor: pointer;
-
-                &:hover {
-                    background: lighten($background, 10);
-                }
-            }
-
-            .autocomplete-active {
-                background: lighten($background, 8);
-            }
-        }
-
-        @media only screen and (max-width: 791px) {
-            width: 65%;
-        }
+    .media {
+      h4,
+      a:hover {
+        color: $media;
+      }
     }
 
-    #other-content {
-        margin: 40px auto;
-        padding: 10px 0;
-
-        .sqr {
-            vertical-align: top;
-            display: inline-block;
-            margin-left: 5px;
-            margin-right: 5px;
-            width: 170px;
-            background: lighten($background, 5);
-            padding: 15px 15px;
-            border-radius: 6px;
-            min-height: 150px;
-            margin-top: 10px;
-
-            h4 {
-                font-size: 18px;
-                margin: 15px;
-
-                a {
-                    color: inherit;
-                    font-size: inherit;
-                }
-          }
-
-            &:hover {
-                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-                transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-            }
-
-            a {
-                color: #9E9E9E;
-                font-size: 16px;
-                transition: .1s ease-in;
-                display: block;
-                text-decoration: none;
-                line-height: 22px;
-
-                &:hover {
-                    color: $foreground;
-                    text-decoration: none;
-                    transition: .1s ease-in;
-                }
-            }
-        }
-
-        .media {
-            h4, a:hover {
-                color: $media;
-            }
-        }
-
-        .work {
-            h4, a:hover {
-                color: $work;
-            }
-        }
-
-        .social {
-            h4, a:hover {
-                color: $social;
-            }
-            
-        }
-
-        .others {
-            h4, a:hover {
-                color: $others;
-            }
-        }
-
-        .funky {
-            h4, a:hover {
-                color: $funky;
-            }
-        }
-
-        .purple {
-            h4, a:hover {
-                color: $purple;
-            }
-        }
-
-        .upvoty {
-            h4, a:hover {
-                color: $upvoty;
-            }
-        }
-
-        .indigo {
-            h4, a:hover {
-                color: $indigo;
-            }
-        }
-
-        .foxxy {
-            h4, a:hover {
-                color: $foxxy;
-            }
-        }
+    .work {
+      h4,
+      a:hover {
+        color: $work;
+      }
     }
+
+    .social {
+      h4,
+      a:hover {
+        color: $social;
+      }
+    }
+
+    .others {
+      h4,
+      a:hover {
+        color: $others;
+      }
+    }
+
+    .funky {
+      h4,
+      a:hover {
+        color: $funky;
+      }
+    }
+
+    .purple {
+      h4,
+      a:hover {
+        color: $purple;
+      }
+    }
+
+    .upvoty {
+      h4,
+      a:hover {
+        color: $upvoty;
+      }
+    }
+
+    .indigo {
+      h4,
+      a:hover {
+        color: $indigo;
+      }
+    }
+
+    .foxxy {
+      h4,
+      a:hover {
+        color: $foxxy;
+      }
+    }
+  }
 }
 
 .settings-modal {
-    display: none;
-    position: fixed;
-    z-index: 3;
-    width: 80vw;
-    height: 80vh;
-    overflow: auto;
-    background: $foreground;
-    color: #212121;
-    padding: 15px;
+  display: none;
+  position: fixed;
+  z-index: 3;
+  width: 80vw;
+  height: 80vh;
+  overflow: auto;
+  background: $foreground;
+  color: #212121;
+  padding: 15px;
 
-    .modal-content {
-        width: 100%;
-        height: 100%;
+  .modal-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+
+    &:hover,
+    &:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
     }
+  }
 
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-
-        &:hover, &:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-            }
-      }
+  .release {
+    margin-top: 4px;
+  }
 }
 
 #settings-cog {
-    width: 23px;
-    height: 23px;
-    position: absolute;
-    bottom: 25px;
-    right: 25px;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  transition: 2s ease-in;
+  display: none;
+
+  &:hover .cog {
+    fill: white;
+    stroke: white;
     transition: 2s ease-in;
-    display: none;
-    
-    &:hover .cog {
-        fill: white;
-        stroke: white;
-        transition: 2s ease-in;
-    }
+  }
 }
