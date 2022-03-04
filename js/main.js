@@ -37,7 +37,13 @@ searchEngines = {
     "Bing": "https://www.bing.com/search?q=",
     "Yahoo": "https://search.yahoo.com/search?p=",
     "Ecosia": "https://www.ecosia.org/search?q=",
-    "Startpage": "https://startpage.com/do/search?query="
+    "Startpage": "https://startpage.com/do/search?query=",
+    "Yandex": "https://yandex.com/search/?text=",
+    "Qwant": "https://www.qwant.com/?q=",
+    "Wikipedia": "https://wikipedia.org/wiki/Special:Search?search=",
+    "Wolfram": "https://www.wolframalpha.com/input/?i=",
+    "Baidu": "https://www.baidu.com/s?wd=",
+    "StackOverflow": "https://stackoverflow.com/search?q="
 }
 validWeatherUnit = [
     "fah", "cel"
