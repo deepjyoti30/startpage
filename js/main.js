@@ -36,7 +36,8 @@ searchEngines = {
     "DuckDuckGo": "https://duckduckgo.com/?q=",
     "Bing": "https://www.bing.com/search?q=",
     "Yahoo": "https://search.yahoo.com/search?p=",
-    "Ecosia": "https://www.ecosia.org/search?q="
+    "Ecosia": "https://www.ecosia.org/search?q=",
+    "Startpage": "https://startpage.com/do/search?query="
 }
 validWeatherUnit = [
     "fah", "cel"
