@@ -64,6 +64,17 @@
   "quickLinks": {
     "r": "https://reddit.com",
     "g": "https://github.com",
-    "y": "https://youtube.com"
+    "y": "https://youtube.com",
+    "d": {
+      "URL": "https://duckduckgo.com",
+      "Search": "/?q="
+    },
+    "b": "https://bing.com",
+    "p": "https://startpage.com",
+    "s": "https://stackoverflow.com",
+    "w": {
+      "URL":"https://wikipedia.org/wiki",
+      "Search": "/Special:Search?search="
+    }
   }
 }
