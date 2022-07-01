@@ -4,7 +4,7 @@
       "color": "red",
       "links": [
         { "name": "Spotify", "url": "https://open.spotify.com/" },
-        { "name": "YoutubeMusic", "url": "https://music.youtube.com/" },
+        { "name": "YoutubeMusic", "url": "https://music.youtube.com/", "newTab": false },
         { "name": "Netflix", "url": "https://netflix.com" },
         { "name": "Youtube", "url": "https://youtube.com" }
       ]
