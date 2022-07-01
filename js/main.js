@@ -264,8 +264,14 @@ function parseAndCreate(jsonData) {
 
     sqrs = jsonData["squares"]
 
+    globalNewTabEnabled = false
+    passedNewTab = jsonData["linkInNewTab"]
+    if (passedNewTab != undefined) {
+        globalNewTabEnabled = passedNewTab
+    }
+
     sqrs.forEach((element, index) => {
-        sqr = createSqr(element, index)
+        sqr = createSqr(element, index, globalNewTabEnabled)
         document.getElementById(otherContentId).appendChild(sqr)
     })
 
