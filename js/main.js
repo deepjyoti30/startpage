@@ -367,8 +367,8 @@ function createSqr(sqrData, index, globalNewTabEnabled) {
         isNewTab = globalNewTabEnabled
         newTabValue = element["newTab"]
 
-        if (newTab != undefined) {
-            isNewTab = newTab
+        if (newTabValue != undefined) {
+            isNewTab = newTabValue
         }
 
         a = document.createElement("a")
