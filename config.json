@@ -4,7 +4,7 @@
       "color": "red",
       "links": [
         { "name": "Spotify", "url": "https://open.spotify.com/" },
-        { "name": "YoutubeMusic", "url": "https://music.youtube.com/" },
+        { "name": "YoutubeMusic", "url": "https://music.youtube.com/", "newTab": false },
         { "name": "Netflix", "url": "https://netflix.com" },
         { "name": "Youtube", "url": "https://youtube.com" }
       ]
@@ -35,6 +35,7 @@
       ]
     }
   ],
+  "linkInNewTab": true,
   "title": "startpage",
   "searchEngine":"DuckDuckGo",
   "user": "Deepjyoti",
@@ -64,6 +65,17 @@
   "quickLinks": {
     "r": "https://reddit.com",
     "g": "https://github.com",
-    "y": "https://youtube.com"
+    "y": "https://youtube.com",
+    "d": {
+      "URL": "https://duckduckgo.com",
+      "Search": "/?q="
+    },
+    "b": "https://bing.com",
+    "p": "https://startpage.com",
+    "s": "https://stackoverflow.com",
+    "w": {
+      "URL":"https://wikipedia.org/wiki",
+      "Search": "/Special:Search?search="
+    }
   }
 }

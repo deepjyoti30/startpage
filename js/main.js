@@ -36,7 +36,11 @@ searchEngines = {
     "DuckDuckGo": "https://duckduckgo.com/?q=",
     "Bing": "https://www.bing.com/search?q=",
     "Yahoo": "https://search.yahoo.com/search?p=",
-    "Ecosia": "https://www.ecosia.org/search?q="
+    "Ecosia": "https://www.ecosia.org/search?q=",
+    "Startpage": "https://startpage.com/do/search?query=",
+    "Yandex": "https://yandex.com/search/?text=",
+    "Qwant": "https://www.qwant.com/?q=",
+    "Baidu": "https://www.baidu.com/s?wd="
 }
 validWeatherUnit = [
     "fah", "cel"
@@ -260,8 +264,14 @@ function parseAndCreate(jsonData) {
 
     sqrs = jsonData["squares"]
 
+    globalNewTabEnabled = false
+    passedNewTab = jsonData["linkInNewTab"]
+    if (passedNewTab != undefined) {
+        globalNewTabEnabled = passedNewTab
+    }
+
     sqrs.forEach((element, index) => {
-        sqr = createSqr(element, index)
+        sqr = createSqr(element, index, globalNewTabEnabled)
         document.getElementById(otherContentId).appendChild(sqr)
     })
 
@@ -316,7 +326,7 @@ function parseAndCreate(jsonData) {
     extractQuickLinks(sqrs, jsonData["style"]);
 }
 
-function createSqr(sqrData, index) {
+function createSqr(sqrData, index, globalNewTabEnabled) {
     // Create a new square division with the passed element
     name = sqrData["name"];
     link = sqrData["url"];
@@ -348,10 +358,29 @@ function createSqr(sqrData, index) {
     links.forEach(element => {
         aName = element["name"]
         aHref = element["url"]
+        
+        // Idea is to give preference to
+        // link specific newTab field over the global
+        // one.
+        //
+        // As a fallback, the global value will be used.
+        isNewTab = globalNewTabEnabled
+        newTabValue = element["newTab"]
+
+        if (newTabValue != undefined) {
+            isNewTab = newTabValue
+        }
 
         a = document.createElement("a")
         attrHref = document.createAttribute("href")
         attrHref.value = aHref
+
+        if (isNewTab) {
+            attrTarget = document.createAttribute("target")
+            attrTarget.value = "_blank"
+            a.setAttributeNode(attrTarget)
+        }
+        
         a.setAttributeNode(attrHref)
 
         a.textContent = aName
