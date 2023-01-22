@@ -16,7 +16,10 @@ body {
   justify-content: center;
   background: #212121;
   color: #fff; }
-
+  @media screen and (max-height: 501px) {
+    body {
+      display: block;
+      height: 100vh; } }
 .main {
   width: 100%;
   text-align: center; }
