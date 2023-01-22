@@ -40,7 +40,8 @@ searchEngines = {
     "Startpage": "https://startpage.com/do/search?query=",
     "Yandex": "https://yandex.com/search/?text=",
     "Qwant": "https://www.qwant.com/?q=",
-    "Baidu": "https://www.baidu.com/s?wd="
+    "Baidu": "https://www.baidu.com/s?wd=",
+    "Brave": "https://search.brave.com/search?q="
 }
 validWeatherUnit = [
     "fah", "cel"
