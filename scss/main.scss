@@ -277,6 +277,11 @@ body {
     color: #6b7280;
   }
 
+  .update--available {
+    visibility: hidden;
+    color: #6b7280;
+  }
+
   .backup-import {
     display: flex;
     align-items: center;
