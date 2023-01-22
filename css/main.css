@@ -171,6 +171,9 @@ body {
       cursor: pointer; }
   .settings-modal .release {
     color: #6b7280; }
+  .settings-modal .update--available {
+    visibility: hidden;
+    color: #6b7280; }
   .settings-modal .backup-import {
     display: flex;
     align-items: center; }

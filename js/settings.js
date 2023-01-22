@@ -34,6 +34,9 @@ function showSettings() {
         hideSettings(editor);
     }
 
+    // Initiate the version check
+    checkIfUpdateAvailable();
+
     // Add listener for the export button
     exportBtn = document.getElementById(exportBtnId);
     exportBtn.onclick = () => {

@@ -42,6 +42,12 @@ async function checkIfUpdateAvailable() {
     // We need to compare the tags to see if the tag available is older than
     // the current one
     isUpdateAvailable = isTagHigher(latestTagAvailable, VERSION);
+
+    if (!isUpdateAvailable) return;
+
+    // Update is available, we need to show the notification.
+    updateElement = document.getElementsByClassName("update--available")[0];
+    updateElement.style.visibility = "visible";
 }
 
 
