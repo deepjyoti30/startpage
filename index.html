@@ -16,11 +16,18 @@
             <h2>
                 Edit the config.json below. Check <a href="https://github.com/deepjyoti30/startpage/wiki/Configuration" target="_blank">this</a> for details
             </h2>
+            <div class="backup-import">
+                <button id="export--btn" class="btn" title="Export the configuration file">Export</button>
+                <button id="import--btn" class="btn import-btn" title="Import configuration file">Import</button>
+            </div>
             <h4 class="release">
                 <!--Following will be populated by JS-->
                 <span id="current--version--startpage"></span>
             </h4>
             <div id="jsoneditor" style="width: 100%;height: 80%;"></div>
+            <div id="is--update--available" class="update--available">
+                <h4>An update is available. <a href="https://github.com/deepjyoti30/startpage/releases/latest" target="_blank">You know the drill!</a></h4>
+            </div>
         </div>
     </div>
     <div id="main" class="main">

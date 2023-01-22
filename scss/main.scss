@@ -35,6 +35,11 @@ body {
   background: $background;
   color: $foreground;
   @extend .jetbrains-mono;
+
+  @media screen and (max-height: 501px) {
+    display: block;
+    height: 100vh;
+  }
 }
 
 .main {
@@ -270,6 +275,32 @@ body {
 
   .release {
     color: #6b7280;
+  }
+
+  .update--available {
+    visibility: hidden;
+    color: #6b7280;
+  }
+
+  .backup-import {
+    display: flex;
+    align-items: center;
+
+    .btn {
+      box-shadow: none;
+      border: none;
+      text-align: center;
+      border-radius: 5px;
+      padding: 4px 16px;
+      cursor: pointer;
+      font-size: medium;
+      color: white;
+      background-color: #37474F;
+    }
+
+    .import-btn {
+      margin-left: 10px;
+    }
   }
 }
 

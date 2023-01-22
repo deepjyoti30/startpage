@@ -10,6 +10,8 @@
 modalId = "settings"
 closeId = "close"
 jsonContainer = "jsoneditor"
+exportBtnId = "export--btn"
+importBtnId = "import--btn"
 
 // Detect browser
 BROWSER = detectBrowser()
@@ -30,6 +32,21 @@ function showSettings() {
 
     closeBtn.onclick = () => {
         hideSettings(editor);
+    }
+
+    // Initiate the version check
+    checkIfUpdateAvailable();
+
+    // Add listener for the export button
+    exportBtn = document.getElementById(exportBtnId);
+    exportBtn.onclick = () => {
+        triggerDownload(editor, "config.json");
+    }
+
+    // Add listener for the import button
+    exportBtn = document.getElementById(importBtnId);
+    exportBtn.onclick = () => {
+        handleConfigImport(editor);
     }
 
     return editor
@@ -71,3 +88,67 @@ function detectBrowser() {
 
     return BROWSER;
 };
+
+
+function triggerDownload(editor, filename) {
+    /**
+     * Trigger the download of the configuration file.
+     * 
+     * This method will trigger the download of the configuration file
+     * by creating an `a` element and clicking it through JS.
+     */
+
+    // Read the updated JSON content
+    text = editor.get()
+
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(text, null, 2)));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
+}
+
+
+function handleConfigImport(editor) {
+    /**
+     * Handle import the config using a file picker and then
+     * populate the editor with the config just selected by the user.
+     */
+    // Create a file picker and trigger it. Add a listener to read the
+    // file contents after the file is loaded and update the editor.
+    var filePickerElement = document.createElement("input");
+    filePickerElement.setAttribute("type", "file");
+    filePickerElement.setAttribute("accept", ".json");
+
+    filePickerElement.style.display = "none";
+    document.body.appendChild(filePickerElement);
+    
+    // Add the listener for when the file is picked up
+    filePickerElement.onchange = () => {
+        // TODO: Validate the contents to see if it matches the config structure
+        var filePicked = filePickerElement.files[0];
+        if (!filePicked) {
+            window.alert("File not picked!");
+            return
+        }
+
+        var reader = new FileReader();
+        reader.readAsText(filePicked, "utf-8");
+        
+        reader.onload = (evt) => {
+            readData = evt.target.result;
+            dataAsJson = JSON.parse(readData);
+            editor.set(dataAsJson);
+        }       
+    }
+
+    filePickerElement.click();
+
+    // Remove the element now
+    document.body.removeChild(filePickerElement);
+}
