@@ -10,6 +10,7 @@
 modalId = "settings"
 closeId = "close"
 jsonContainer = "jsoneditor"
+exportBtnId = "export--btn"
 
 // Detect browser
 BROWSER = detectBrowser()
@@ -30,6 +31,12 @@ function showSettings() {
 
     closeBtn.onclick = () => {
         hideSettings(editor);
+    }
+
+    // Add listener for the export button
+    exportBtn = document.getElementById(exportBtnId);
+    exportBtn.onclick = () => {
+        triggerDownload(editor, "config.json");
     }
 
     return editor
@@ -71,3 +78,27 @@ function detectBrowser() {
 
     return BROWSER;
 };
+
+
+function triggerDownload(editor, filename) {
+    /**
+     * Trigger the download of the configuration file.
+     * 
+     * This method will trigger the download of the configuration file
+     * by creating an `a` element and clicking it through JS.
+     */
+
+    // Read the updated JSON content
+    text = editor.get()
+
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(text, null, 2)));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
+  }
