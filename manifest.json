@@ -2,15 +2,21 @@
   "manifest_version": 3,
   "name": "minimal-startpage",
   "short_name": "minimal-startpage",
-  "version": "1",
+  "version": "1.1",
   "description": "Overrides the browsers newtab page with a custom startpage.",
   "author": "deepjyoti30",
-
   "icons": {
     "64": "img/icon64.png"
   },
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "permissions": ["storage"]
+  "permissions": [
+    "storage"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "minimal-startpage@deepjyoti30.dev"
+    }
+  }
 }
