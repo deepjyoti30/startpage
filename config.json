@@ -1,43 +1,94 @@
 {
   "squares": [
-    { "name": "media",
+    {
+      "name": "media",
       "color": "red",
       "links": [
-        { "name": "Spotify", "url": "https://open.spotify.com/" },
-        { "name": "YoutubeMusic", "url": "https://music.youtube.com/", "newTab": false },
-        { "name": "Netflix", "url": "https://netflix.com" },
-        { "name": "Youtube", "url": "https://youtube.com" }
+        {
+          "name": "Spotify",
+          "url": "https://open.spotify.com/"
+        },
+        {
+          "name": "YoutubeMusic",
+          "url": "https://music.youtube.com/",
+          "newTab": false
+        },
+        {
+          "name": "Netflix",
+          "url": "https://netflix.com"
+        },
+        {
+          "name": "Youtube",
+          "url": "https://youtube.com"
+        }
       ]
     },
-    { "name": "work",
+    {
+      "name": "work",
       "color": "#26A69A",
       "links": [
-        { "name": "Github", "url": "https://github.com" },
-        { "name": "Heroku", "url": "http://heroku.com/" },
-        { "name": "localhost", "url": "http://localhost:8000/" }
+        {
+          "name": "Github",
+          "url": "https://github.com"
+        },
+        {
+          "name": "Heroku",
+          "url": "http://heroku.com/"
+        },
+        {
+          "name": "localhost",
+          "url": "http://localhost:8000/"
+        }
       ]
     },
-    { "name": "social",
+    {
+      "name": "social",
+      "color": "#FFF176",
       "links": [
-        { "name": "Reddit", "url": "https://reddit.com" },
-        { "name": "Unixporn Love", "url": "https://deepjyoti30.github.io/unixporn-love/" },
-        { "name": "r/unixporn", "url": "https://www.reddit.com/r/unixporn/" },
-        { "name": "r/mk", "url": "https://www.reddit.com/r/MechanicalKeyboards/" }
+        {
+          "name": "Reddit",
+          "url": "https://reddit.com"
+        },
+        {
+          "name": "Unixporn Love",
+          "url": "https://deepjyoti30.github.io/unixporn-love/"
+        },
+        {
+          "name": "r/unixporn",
+          "url": "https://www.reddit.com/r/unixporn/"
+        },
+        {
+          "name": "r/mk",
+          "url": "https://www.reddit.com/r/MechanicalKeyboards/"
+        }
       ]
     },
     {
       "name": "Others",
+      "color": "#81C784",
       "links": [
-        {"name": "Material Colors", "url": "http://materialuicolors.co/"},
-        {"name": "Gmail", "url": "http://gmail.com/"},
-        {"name": "neo4j Local", "url": "http://localhost:7474/"},
-        {"name": "rarbg", "url": "http://rarbg.to"}
+        {
+          "name": "Material Colors",
+          "url": "http://materialuicolors.co/"
+        },
+        {
+          "name": "Gmail",
+          "url": "http://gmail.com/"
+        },
+        {
+          "name": "neo4j Local",
+          "url": "http://localhost:7474/"
+        },
+        {
+          "name": "rarbg",
+          "url": "http://rarbg.to"
+        }
       ]
     }
   ],
   "linkInNewTab": true,
   "title": "startpage",
-  "searchEngine":"DuckDuckGo",
+  "searchEngine": "DuckDuckGo",
   "user": "Deepjyoti",
   "disableMessage": false,
   "disableDate": false,
@@ -74,7 +125,7 @@
     "p": "https://startpage.com",
     "s": "https://stackoverflow.com",
     "w": {
-      "URL":"https://wikipedia.org/wiki",
+      "URL": "https://wikipedia.org/wiki",
       "Search": "/Special:Search?search="
     }
   }
